@@ -73,47 +73,4 @@ main {
   padding: 1rem;
   background-color: #7b0612;
   border-radius: 10px;
-}
-
-.sidebar {
-  height: 100%;
-  position: fixed;
-  z-index: 1337;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  width: 16rem;
-  padding: 1rem;
-  background-color: #0d1623;
-}
-.sidebar h1 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.sidebar hr {
-  border: none;
-  height: 1px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  background: rgba(255, 255, 255, 0.5882352941);
-  opacity: 0.4;
-}
-.sidebar a {
-  text-decoration: none;
-}
-.sidebar .item {
-  border-radius: 10px;
-  padding: 0.8rem;
-}
-.sidebar .item:hover {
-  background-color: #142136;
-}
-.sidebar .item i {
-  padding-right: 10px;
-}
-.sidebar .item.active {
-  background-color: #761bff;
-}
-.sidebar .bottom a {
-  color: #761bff;
-}/*# sourceMappingURL=noctura.css.map */
+}/*# sourceMappingURL=base.css.map */

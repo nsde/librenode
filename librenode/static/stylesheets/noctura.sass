@@ -1,31 +1,3 @@
+@import 'base'
 @import 'theme'
 @import 'sidebar'
-
-html
-    scroll-behavior: smooth
-    font-family: $font-stack
-
-*
-    transition: 0.3s
-
-body
-    color: $text
-    background-color: $bg
-    margin: 0
-
-a
-    color: $text
-    text-decoration: none
-
-    &:hover
-        text-decoration: underline
-
-main
-    margin: 3rem
-    margin-left: calc($sidebar-width + 5rem)
-
-.alert
-    width: max-content
-    padding: 1rem
-    background-color: $red
-    border-radius: 10px

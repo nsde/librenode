@@ -36,4 +36,7 @@
 }
 .sidebar .item.active {
   background-color: #761bff;
+}
+.sidebar .bottom a {
+  color: rgba(255, 255, 255, 0.5882352941);
 }/*# sourceMappingURL=sidebar.css.map */
