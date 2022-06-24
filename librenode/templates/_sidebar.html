@@ -1,0 +1,28 @@
+<div class="sidebar">
+    <h1>LibreNode</h1>
+    <hr>
+    <a href="/home">
+        <div class="item {{ 'active' if page == 'home' else '' }}">
+            <i class="bi bi-house"></i>
+            <span>Home</span>
+        </div>
+    </a>
+    <a href="/stats">
+        <div class="item {{ 'active' if page == 'stats' else '' }}">
+            <i class="bi bi-activity"></i>
+            <span>Performance</span>
+        </div>
+    </a>
+    <a href="/mods">
+        <div class="item {{ 'active' if page == 'mods' else '' }}">
+            <i class="bi bi-cart-plus"></i>
+            <span>Mods & Plugins</span>
+        </div>
+    </a>
+    <a href="/files">
+        <div class="item {{ 'active' if page == 'files' else '' }}">
+            <i class="bi bi-file-earmark"></i>
+            <span>Files & Backups</span>
+        </div>
+    </a>    
+</div>

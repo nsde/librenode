@@ -1,0 +1,21 @@
+{% with title="Home" %}
+    {% include "_top.html" %}
+{% endwith %}
+
+{% with page="home" %}
+    {% include "_sidebar.html" %}
+{% endwith %}
+
+<main>
+    <div class="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <strong>Warning  ·</strong>
+        LibreNode is currently in an experimental alpha state. Bugs can occur.
+    </div>
+
+    <h1>Home</h1>
+
+    <p>Hello there!</p>
+</main>
+
+{% include "_end.html" %}
