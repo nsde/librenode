@@ -1,5 +1,18 @@
-@import 'theme'
-@import 'sidebar'
+// Theme Colors
+$text: #ffffff
+$text-light: #ffffff96
+$accent: #761bff
+$bg: #142136
+$bg-dark: #0d1623
+
+// Other Colors
+$red: #7b0612
+$yellow: #8d6a00
+$green: #13643e
+
+// Misc
+$font-stack: system-ui
+$sidebar-width: 16rem
 
 html
     scroll-behavior: smooth
@@ -7,6 +20,7 @@ html
 
 *
     transition: 0.3s
+
 
 body
     color: $text
@@ -17,6 +31,55 @@ a
     color: $text
     text-decoration: none
 
+    &:hover
+        text-decoration: underline
+
+.sidebar
+    height: 100%
+    position: fixed
+    z-index: 1337
+    top: 0
+    left: 0
+    overflow-x: hidden
+    width: $sidebar-width
+    padding: 1rem
+    background-color: $bg-dark
+
+    h1
+        margin-top: 0
+        margin-bottom: 0
+
+    hr
+        border: none
+        height: 1px
+        margin-top: 1rem
+        margin-bottom: 1rem
+        background: $text-light
+        opacity: 0.4
+
+    a:not(span.bottom a)
+        text-decoration: none
+
+    .item
+        border-radius: 10px
+        padding: 0.8rem
+        opacity: 0.7
+
+        i
+            padding-right: 10px
+
+        &.active
+            background-color: $accent
+            opacity: 1
+
+        &:hover
+            opacity: 1
+
+    .bottom  a
+        color: $text-light
+        position: absolute
+        bottom: 3rem
+
 main
     margin: 3rem
     margin-left: calc($sidebar-width + 5rem)
@@ -26,3 +89,27 @@ main
     padding: 1rem
     background-color: $red
     border-radius: 10px
+
+.panels
+    display: grid
+    grid-template-columns: auto auto auto auto
+    gap: 2rem
+
+    .panel
+        padding: 1rem
+        padding-bottom: 2rem
+
+        height: 5rem
+        color: $text
+        background-color: $accent
+        border-radius: 5px
+
+        i
+            font-size: xx-large
+        
+        span.title
+            display: block
+
+        span.value
+            font-size: x-large
+            font-weight: 600
