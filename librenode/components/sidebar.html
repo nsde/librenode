@@ -1,18 +1,25 @@
 <div class="sidebar">
     <h1><i class="bi bi-controller"></i> LibreNode</h1>
     <hr>
+    <span class="fg-accent"><strong>{{ ip or 'Server' }}</strong></span>
     {% for item in navigation %}
-        <a href="{{ item.path }}">
-            <div class="item{{ ' active' if page == '{{ item.path }}' else '' }}">
+        <a href="/{{ item.path }}">
+            <div class="item{{ ' active' if page == item.path else '' }}">
                 <i class="bi bi-{{ item.icon }}"></i>
                 <span>{{ item.name }}</span>
+                {% if item.is_external %}
+                    <i class="bi bi-box-arrow-up-right" style="opacity: 0.4; margin-left: 5px;"></i>
+                {% endif %}
             </div>
         </a>
+        {% if item.seperate %}
+            <hr>
+        {% endif %}
     {% endfor %}
 
     <div class="bottom">
         <p>Logged in as <strong>{{ username or 'Guest' }}</strong>.</p>
-        <p><i class="bi bi-box-arrow-in-left"></i> Logout</p>
+        <p><a href="/logout"><i class="bi bi-box-arrow-in-left"></i> Logout</a></p>
         <a href="https://github.com/nsde/librenode">v0.1-ALPHA by ONLIX</a>
     </div>
 </div>

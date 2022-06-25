@@ -1,0 +1,23 @@
+{% with title="Login" %}
+    {% include "components/top.html" %}
+{% endwith %}
+
+<main class="dark">
+    <div class="auth">
+        <div class="alert bg-red">
+            <i class="bi bi-shield-lock"></i>
+            <strong>No access!</strong> Please contact the administrator for more information.
+            Make sure you're connecting with your <strong>correct account!</strong>
+        </div>
+        <p></p>
+
+        <a href="/">
+            <button class="bg-yellow">
+                <i class="bi bi-arrow-clockwise"></i>
+                Try again
+            </button>
+        </a>
+    </div>
+</main>
+
+{% include "components/end.html" %}

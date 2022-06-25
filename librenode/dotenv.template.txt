@@ -1,0 +1,1 @@
+FLASK_SECRET_KEY=password_like_string123

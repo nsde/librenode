@@ -2,6 +2,7 @@
 $text: #ffffff
 $text-light: #ffffff96
 $accent: #761bff
+$gradient-accent: linear-gradient(90deg, rgba(134,53,255,0.9766106951408936) 0%, rgba(126,41,255,1) 48%, rgba(118,27,255,0.9289916475218459) 100%)
 $text-accent: #c6a3f9
 $bg: #142136
 $bg-dark: #0d1623
@@ -74,7 +75,7 @@ a
             padding-right: 10px
 
         &.active
-            background-color: $accent
+            background: $gradient-accent
             opacity: 1
 
         &:hover
@@ -130,7 +131,7 @@ div.panels
 
         height: 5rem
         color: $text
-        background-color: $accent
+        background: linear-gradient(90deg, rgba(134,53,255,0.9766106951408936) 0%, rgba(126,41,255,1) 48%, rgba(118,27,255,0.9289916475218459) 100%)
         border-radius: 5px
 
         i
@@ -145,8 +146,9 @@ div.panels
 
 mark.dc
     color: white
-    padding: 2px
-    background-color: #37393f
+    padding-left: 2px
+    padding-right: 2px
+    background-color: #ffffff18
     border-radius: 5px
 
 input, button
@@ -163,15 +165,6 @@ button
         opacity: 0.6
         cursor: pointer
 
-.bg-red
-    background-color: $red
-.bg-yellow
-    background-color: $yellow
-.bg-green
-    background-color: $green
-.bg-blue
-    background-color: $blue
-
 .fg-red
     color: $red
 .fg-yellow
@@ -180,3 +173,14 @@ button
     color: $green
 .fg-blue
     color: $blue
+.fg-accent
+    color: $text-accent
+
+.bg-red
+    background-color: $red
+.bg-yellow
+    background-color: $yellow
+.bg-green
+    background-color: $green
+.bg-blue
+    background-color: $blue

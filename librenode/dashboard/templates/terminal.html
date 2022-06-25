@@ -1,0 +1,18 @@
+{% with title="Console" %}
+    {% include "components/top.html" %}
+{% endwith %}
+
+{% with page="terminal" %}
+    {% include "components/sidebar.html" %}
+{% endwith %}
+
+<main class="has-sidebar">
+    <div class="alert bg-yellow">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <strong>Warning  ·</strong>
+        The console might contain sensitive information such as IP addresses, login codes and more.
+        Please be really careful about what you send and always check it!
+    </div>
+</main>
+
+{% include "components/end.html" %}

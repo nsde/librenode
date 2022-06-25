@@ -57,7 +57,7 @@ a:hover {
   padding-right: 10px;
 }
 .sidebar .item.active {
-  background-color: #761bff;
+  background: linear-gradient(90deg, rgba(134, 53, 255, 0.9766106951) 0%, rgb(126, 41, 255) 48%, rgba(118, 27, 255, 0.9289916475) 100%);
   opacity: 1;
 }
 .sidebar .item:hover {
@@ -116,7 +116,7 @@ div.panels div.panel {
   padding-bottom: 2rem;
   height: 5rem;
   color: #ffffff;
-  background-color: #761bff;
+  background: linear-gradient(90deg, rgba(134, 53, 255, 0.9766106951) 0%, rgb(126, 41, 255) 48%, rgba(118, 27, 255, 0.9289916475) 100%);
   border-radius: 5px;
 }
 div.panels div.panel i {
@@ -132,8 +132,9 @@ div.panels div.panel span.value {
 
 mark.dc {
   color: white;
-  padding: 2px;
-  background-color: #37393f;
+  padding-left: 2px;
+  padding-right: 2px;
+  background-color: rgba(255, 255, 255, 0.0941176471);
   border-radius: 5px;
 }
 
@@ -153,22 +154,6 @@ button:hover {
   cursor: pointer;
 }
 
-.bg-red {
-  background-color: #7b0612;
-}
-
-.bg-yellow {
-  background-color: #8d6a00;
-}
-
-.bg-green {
-  background-color: #13643e;
-}
-
-.bg-blue {
-  background-color: #162b7b;
-}
-
 .fg-red {
   color: #7b0612;
 }
@@ -183,4 +168,24 @@ button:hover {
 
 .fg-blue {
   color: #162b7b;
+}
+
+.fg-accent {
+  color: #c6a3f9;
+}
+
+.bg-red {
+  background-color: #7b0612;
+}
+
+.bg-yellow {
+  background-color: #8d6a00;
+}
+
+.bg-green {
+  background-color: #13643e;
+}
+
+.bg-blue {
+  background-color: #162b7b;
 }/*# sourceMappingURL=base.css.map */
