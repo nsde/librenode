@@ -1,21 +1,38 @@
 {% with title="Home" %}
-    {% include "_top.html" %}
+    {% include "../../components/top.html" %}
 {% endwith %}
 
 {% with page="home" %}
-    {% include "_sidebar.html" %}
+    {% include "../../components/sidebar.html" %}
 {% endwith %}
 
-<main>
-    <div class="alert">
+<main class="has-sidebar">
+    <div class="alert bg-yellow">
         <i class="bi bi-exclamation-triangle-fill"></i>
         <strong>Warning  ·</strong>
         LibreNode is currently in an experimental alpha state. Bugs can occur.
     </div>
 
     <h1>Home</h1>
+    <h2>Actions</h2>
+    <div class="actions">
+        <div class="action">
+            <a href="/server/stop">
+                <button class="bg-red">
+                    <i class="bi bi-stop-circle-fill"></i>
+                    Shutdown
+                </button></a>
+        </div>
+        <div class="action">
+            <a href="/server/clear">
+                <button class="bg-blue">
+                    <i class="bi bi-trash-fill"></i>
+                    Clear logs
+                </button></a>
+        </div>
+    </div>
 
-    <p>Hello there!</p>
+    <h2>Status</h2>
 
     <div class="panels">
         <div class="panel">
@@ -41,4 +58,4 @@
     </div>
 </main>
 
-{% include "_end.html" %}
+{% include "../../components/end.html" %}

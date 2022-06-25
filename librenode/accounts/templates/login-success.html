@@ -1,0 +1,14 @@
+{% with title="Login" %}
+    {% include "../../components/top.html" %}
+{% endwith %}
+
+<main class="dark">
+    <div class="auth">
+        <h1><span class="info"><i class="bi bi-shield-check"></i> Welcome, {{ user or "Guest" }}!</h1>
+        <p>You've successfully connected your Discord account with <i>LibreNode</i>.</p>
+
+        <a href="/"><button class="bg-green"><i class="bi bi-arrow-right"></i> Alright now, let me in!</button></a>
+    </div>
+</main>
+
+{% include "../../components/end.html" %}

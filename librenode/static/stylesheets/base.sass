@@ -2,13 +2,17 @@
 $text: #ffffff
 $text-light: #ffffff96
 $accent: #761bff
+$text-accent: #c6a3f9
 $bg: #142136
 $bg-dark: #0d1623
+$shadow: #000000b6
+$input: #18273d
 
 // Other Colors
 $red: #7b0612
 $yellow: #8d6a00
 $green: #13643e
+$blue: #162b7b
 
 // Misc
 $font-stack: system-ui
@@ -44,6 +48,7 @@ a
     width: $sidebar-width
     padding: 1rem
     background-color: $bg-dark
+    box-shadow: 5px 0px 20px $shadow
 
     h1
         margin-top: 0
@@ -75,27 +80,51 @@ a
         &:hover
             opacity: 1
 
-    .bottom  a
-        color: $text-light
+    div.bottom
         position: absolute
         bottom: 3rem
 
+        a
+            color: $text-light
+
 main
     margin: 3rem
-    margin-left: calc($sidebar-width + 5rem)
 
-.alert
-    width: max-content
+    &.has-sidebar
+        margin-left: $sidebar-width
+        padding-left: 5rem
+
+
+    a
+        color: $text-accent
+
+    div.auth
+        padding: 2rem
+        width: 30%
+        margin:0 auto
+        border-radius: 10px
+        height: 80vh
+        background-color: $bg-dark
+        box-shadow: 0 0px 15px $shadow
+
+        h1
+            text-align: center
+            margin-top: 0
+
+        button
+            padding: 1rem
+
+div.alert
+    width: fit-content
     padding: 1rem
-    background-color: $red
     border-radius: 10px
 
-.panels
+div.panels
     display: grid
     grid-template-columns: auto auto auto auto
     gap: 2rem
 
-    .panel
+    div.panel
         padding: 1rem
         padding-bottom: 2rem
 
@@ -113,3 +142,41 @@ main
         span.value
             font-size: x-large
             font-weight: 600
+
+mark.dc
+    color: white
+    padding: 2px
+    background-color: #37393f
+    border-radius: 5px
+
+input, button
+    color: white
+    border: none
+    border-radius: 10px
+    padding: 0.5rem
+    background-color: $input
+
+button
+    font-size: large
+
+    &:hover
+        opacity: 0.6
+        cursor: pointer
+
+.bg-red
+    background-color: $red
+.bg-yellow
+    background-color: $yellow
+.bg-green
+    background-color: $green
+.bg-blue
+    background-color: $blue
+
+.fg-red
+    color: $red
+.fg-yellow
+    color: $yellow
+.fg-green
+    color: $green
+.fg-blue
+    color: $blue

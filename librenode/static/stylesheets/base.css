@@ -31,6 +31,7 @@ a:hover {
   width: 16rem;
   padding: 1rem;
   background-color: #0d1623;
+  box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.7137254902);
 }
 .sidebar h1 {
   margin-top: 0;
@@ -62,32 +63,55 @@ a:hover {
 .sidebar .item:hover {
   opacity: 1;
 }
-.sidebar .bottom a {
-  color: rgba(255, 255, 255, 0.5882352941);
+.sidebar div.bottom {
   position: absolute;
   bottom: 3rem;
+}
+.sidebar div.bottom a {
+  color: rgba(255, 255, 255, 0.5882352941);
 }
 
 main {
   margin: 3rem;
-  margin-left: 21rem;
+}
+main.has-sidebar {
+  margin-left: 16rem;
+  padding-left: 5rem;
+}
+main a {
+  color: #c6a3f9;
+}
+main div.auth {
+  padding: 2rem;
+  width: 30%;
+  margin: 0 auto;
+  border-radius: 10px;
+  height: 80vh;
+  background-color: #0d1623;
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.7137254902);
+}
+main div.auth h1 {
+  text-align: center;
+  margin-top: 0;
+}
+main div.auth button {
+  padding: 1rem;
 }
 
-.alert {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+div.alert {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   padding: 1rem;
-  background-color: #7b0612;
   border-radius: 10px;
 }
 
-.panels {
+div.panels {
   display: grid;
   grid-template-columns: auto auto auto auto;
   gap: 2rem;
 }
-.panels .panel {
+div.panels div.panel {
   padding: 1rem;
   padding-bottom: 2rem;
   height: 5rem;
@@ -95,13 +119,68 @@ main {
   background-color: #761bff;
   border-radius: 5px;
 }
-.panels .panel i {
+div.panels div.panel i {
   font-size: xx-large;
 }
-.panels .panel span.title {
+div.panels div.panel span.title {
   display: block;
 }
-.panels .panel span.value {
+div.panels div.panel span.value {
   font-size: x-large;
   font-weight: 600;
+}
+
+mark.dc {
+  color: white;
+  padding: 2px;
+  background-color: #37393f;
+  border-radius: 5px;
+}
+
+input, button {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem;
+  background-color: #18273d;
+}
+
+button {
+  font-size: large;
+}
+button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.bg-red {
+  background-color: #7b0612;
+}
+
+.bg-yellow {
+  background-color: #8d6a00;
+}
+
+.bg-green {
+  background-color: #13643e;
+}
+
+.bg-blue {
+  background-color: #162b7b;
+}
+
+.fg-red {
+  color: #7b0612;
+}
+
+.fg-yellow {
+  color: #8d6a00;
+}
+
+.fg-green {
+  color: #13643e;
+}
+
+.fg-blue {
+  color: #162b7b;
 }/*# sourceMappingURL=base.css.map */

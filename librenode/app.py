@@ -1,11 +1,11 @@
 import flask
+from dashboard.dashboard import dashboard_bp
 
-app = flask.Flask(__name__, static_url_path='/')
-app.jinja_env.trim_blocks = True
-app.jinja_env.lstrip_blocks = True
+import helpers
 
-@app.route('/')
-def index():
-    return flask.render_template('home.html')
+app = flask.Flask(__name__, static_url_path='/', static_folder='static/')
+helpers.setup(app)
+
+app.register_blueprint(dashboard_bp)
 
 app.run(port=1234, debug=True)
