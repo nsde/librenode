@@ -2,7 +2,9 @@
 $text: #ffffff
 $text-light: #ffffff96
 $accent: #761bff
+$semi-transparent: #ffffff23
 $gradient-accent: linear-gradient(90deg, rgba(134,53,255,0.9766106951408936) 0%, rgba(126,41,255,1) 48%, rgba(118,27,255,0.9289916475218459) 100%)
+$gradient-special: linear-gradient(45deg, rgba(134,53,255,0.9766106951408936) 0%, #2954ff 48%, rgba(118,27,255,0.9289916475218459) 100%)
 $text-accent: #c6a3f9
 $bg: #142136
 $bg-dark: #0d1623
@@ -10,10 +12,11 @@ $shadow: #000000b6
 $input: #18273d
 
 // Other Colors
-$red: #7b0612
-$yellow: #8d6a00
-$green: #13643e
-$blue: #162b7b
+$red: #8d202b
+$yellow: #d5950b8a
+$green: #1587526d
+$blue: #1e3388
+$grey: #403f3fc0
 
 // Misc
 $font-stack: system-ui
@@ -81,7 +84,7 @@ a
         &:hover
             opacity: 1
 
-    div.bottom
+    .bottom
         position: absolute
         bottom: 3rem
 
@@ -95,16 +98,16 @@ main
         margin-left: $sidebar-width
         padding-left: 5rem
 
-
     a
         color: $text-accent
 
-    div.auth
+    .auth
+        min-height: 90vh
         padding: 2rem
-        width: 30%
+        width: 500px
         margin:0 auto
         border-radius: 10px
-        height: 80vh
+        // height: 80vh
         background-color: $bg-dark
         box-shadow: 0 0px 15px $shadow
 
@@ -115,24 +118,57 @@ main
         button
             padding: 1rem
 
-div.alert
+@media screen and (max-width: 1000px)
+    div.panels, div.panels div.panel
+        grid-template-columns: auto auto
+
+@media screen and (max-width: 770px)
+    div.sidebar
+        width: 3rem
+
+    .sidebar span, .sidebar h1, .sidebar .bottom, .sidebar hr
+        display: none
+
+    .sidebar .item i
+        font-size: x-large
+
+    main.has-sidebar
+        margin-left: 3rem
+
+    div.auth
+        width: 300px
+
+
+@media screen and (max-width: 570px)
+    div.panels, div.panels div.panel
+        display: block
+        margin-bottom: 1rem
+
+    div.action button
+        margin-bottom: 1rem
+
+@media screen and (max-width: 370px)
+    div.auth
+        width: 200px
+
+.alert
     width: fit-content
     padding: 1rem
     border-radius: 10px
 
-div.panels
+.panels
     display: grid
     grid-template-columns: auto auto auto auto
     gap: 2rem
 
-    div.panel
+    .panel
         padding: 1rem
         padding-bottom: 2rem
 
         height: 5rem
         color: $text
         background: linear-gradient(90deg, rgba(134,53,255,0.9766106951408936) 0%, rgba(126,41,255,1) 48%, rgba(118,27,255,0.9289916475218459) 100%)
-        border-radius: 5px
+        border-radius: 15px
 
         i
             font-size: xx-large
@@ -143,6 +179,9 @@ div.panels
         span.value
             font-size: x-large
             font-weight: 600
+
+    &.inactive .panel
+        background: $grey
 
 mark.dc
     color: white
@@ -164,6 +203,70 @@ button
     &:hover
         opacity: 0.6
         cursor: pointer
+
+.profile-pic
+    border-radius: 50%
+    height: 40px
+    position: relative
+    top: 10px
+    margin-right: 10px
+
+.actions
+    display: inline
+
+    .action
+        display: inline
+
+        button
+            padding: 1rem
+            margin-right: 1rem
+            font-size: large
+            font-weight: bold
+
+.hero
+    background-image: url('/static/assets/reef.png')
+    background-attachment: fixed
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+
+    box-shadow: 0 10px 50px $shadow
+
+    height: 100vh
+    transition: 10s
+    text-align: center
+
+    .branding
+        margin-top: 0
+        opacity: 0.5
+        font-weight: normal
+
+    .hero-text
+        font-size: 4rem
+
+        mark
+            color: white
+            background-color: $accent
+
+    button
+        font-size: 3rem
+        background: none
+
+    &:hover
+        filter: hue-rotate(60deg)
+
+.party
+    border: 2px solid white
+    background: $gradient-special
+    // background-size: 600% 100%
+    animation: gradient 10s linear infinite
+    animation-direction: alternate
+
+@keyframes gradient
+    0%
+        filter: hue-rotate(0deg)
+    100%
+        filter: hue-rotate(120deg)
 
 .fg-red
     color: $red

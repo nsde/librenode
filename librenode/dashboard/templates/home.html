@@ -17,11 +17,26 @@
     <h2>Actions</h2>
     <div class="actions">
         <div class="action">
+            <a href="/server/start">
+                <button class="bg-green">
+                    <i class="bi bi-play-fill"></i>
+                    Start
+                </button></a>
+        </div>
+        <div class="action">
             <a href="/server/stop">
-                <button class="bg-red">
+                <button class="bg-yellow">
                     <i class="bi bi-stop-circle-fill"></i>
                     Shutdown
                 </button></a>
+            </div>
+        <div class="action">
+            <a href="/server/reset">
+                <button class="bg-red">
+                    <i class="bi bi-globe"></i>
+                    Reset worlds
+                </button>
+            </a>
         </div>
         <div class="action">
             <a href="/server/clear">
@@ -34,26 +49,26 @@
 
     <h2>Status</h2>
 
-    <div class="panels">
+    <div class="panels inactive">
         <div class="panel">
             <i class="bi bi-activity"></i>
             <span class="title">Online since</span>
-            <span class="value">13 hours</span>
+            <span class="value">{{ online_since or 'OFFLINE' }}</span>
         </div>
         <div class="panel">
             <i class="bi bi-people"></i>
             <span class="title">Online right now</span>
-            <span class="value">4 players</span>
+            <span class="value">{{ player_count or 'No' }} players</span>
         </div>
         <div class="panel">
             <i class="bi bi-cpu"></i>
             <span class="title">CPU usage</span>
-            <span class="value">13%</span>
+            <span class="value">{{ cpu or '??' }}%</span>
         </div>
         <div class="panel">
             <i class="bi bi-memory"></i>
             <span class="title">RAM usage</span>
-            <span class="value">49%</span>
+            <span class="value">{{ ram or '??'}}%</span>
         </div>
     </div>
 </main>

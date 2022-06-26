@@ -4,15 +4,20 @@
 
 <main class="dark">
     <div class="auth">
+        <h1><i class="bi bi-shield-fill-x fg-red"></i> No access</h1>
+
         <div class="alert bg-red">
             <i class="bi bi-shield-lock"></i>
-            <strong>No access!</strong> Please contact the administrator for more information.
+            <strong>No permission to visit the dasboard! ·</strong> Please contact the administrator for more information.
             Make sure you're connecting with your <strong>correct account!</strong>
         </div>
-        <p></p>
 
-        <a href="/">
-            <button class="bg-yellow">
+        <p>This is not an technical issue, I created this popup on purpose. You were probably just <strong>not given the access to the dashboard</strong>.</p>
+
+        <p><strong>{{ discord_username }}</strong> is a wrong account (e.g. your alt account)? Then click the button below.</p>
+
+        <a href="/auth">
+            <button class="bg-blue">
                 <i class="bi bi-arrow-clockwise"></i>
                 Try again
             </button>

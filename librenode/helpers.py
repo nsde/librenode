@@ -1,3 +1,6 @@
+import os
+import json
+import tools
 import flask
 import sidebar
 
@@ -15,7 +18,26 @@ def setup(app: flask.Flask):
 
     @app.context_processor
     def inject_sidebar():  
-        return dict(navigation=sidebar.NAV)
+        return dict(navigation=sidebar.NAV,
+            discord_id=flask.session.get('discord_id'),         
+            discord_avatar=flask.session.get('discord_avatar'),            
+            discord_username=flask.session.get('discord_username')            
+        )
+
+    @app.before_request
+    def login_wall():
+        path = flask.request.path
+        
+        if not path in ['/login', '/auth']:
+            if not '/static/' in path:
+                has_access_ip = tools.ip(flask.request) in json.load(open('librenode/admin_ips.json'))
+                has_access_session = flask.session.get('discord_username') 
+
+                if not has_access_ip:
+                    return flask.redirect('/login')
+
+                if not has_access_session:
+                    return flask.redirect('/login?session=new')
 
 def show(*args, **kwargs):
     html = flask.render_template(*args, **kwargs)

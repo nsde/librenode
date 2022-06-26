@@ -1,0 +1,48 @@
+{% with title="Login" %}
+    {% include "components/top.html" %}
+{% endwith %}
+
+<div class="hero">
+    <h2 class="branding">LibreNode</h2>
+    <h1 class="hero-text">Minecraft server management<br>has never been <mark>easier</mark>.</h1>
+    <a href="#connect"><button><i class="bi bi-chevron-down"></i></button></a>
+</div>
+
+<main class="dark">
+    <div class="auth">
+        <h1><i class="bi bi-box-arrow-in-right"></i> Log in</h1>
+        {% if is_new_session %}
+            <p>Welcome back, again! You're probably using another browser or incognito mode.</p>
+            {% else %}
+            <p>To verify that have access to the panel, you'll need to quickly log in.</p>
+        {% endif %}
+        
+        <div class="alert bg-green">
+            <span class="info"><i class="bi bi-shield-check"></i>
+                This <strong>won't give us your password</strong>!
+                This just gives the program access to your profile picture/banner, username as well as your email address (because usernames can change).
+                We'll not share this information with anyone else (not even other ONLIX services) and we'll only use it for technical purposes.
+            </span>
+        </div>
+
+        <p>By using <i>LibreNode</i>, you hereby accept to its <a href="https://onlix.me/legal">terms of service and privacy policy</a>.</p>
+    
+        <a href="/auth"><button class="bg-blue party" id="connect"><i class="bi bi-discord"></i> Agree & Connect to Discord</button></a>
+    
+        <h2>Verified accounts</h2>
+        <p>Only these accounts have access to the dashboard!</p>
+        <div class="alert bg-yellow">
+            <span class="info"><i class="bi bi-person-plus-fill"></i>
+               <strong>Not in this list?</strong>
+                Contact the developer of this system - ONLIX - and ask kindly.
+            </span>
+        </div>
+        <ul>
+            {% for admin in admins %}
+            <li>{{ admin }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</main>
+
+{% include "components/end.html" %}

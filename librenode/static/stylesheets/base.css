@@ -63,11 +63,11 @@ a:hover {
 .sidebar .item:hover {
   opacity: 1;
 }
-.sidebar div.bottom {
+.sidebar .bottom {
   position: absolute;
   bottom: 3rem;
 }
-.sidebar div.bottom a {
+.sidebar .bottom a {
   color: rgba(255, 255, 255, 0.5882352941);
 }
 
@@ -81,24 +81,65 @@ main.has-sidebar {
 main a {
   color: #c6a3f9;
 }
-main div.auth {
+main .auth {
+  min-height: 90vh;
   padding: 2rem;
-  width: 30%;
+  width: 500px;
   margin: 0 auto;
   border-radius: 10px;
-  height: 80vh;
   background-color: #0d1623;
   box-shadow: 0 0px 15px rgba(0, 0, 0, 0.7137254902);
 }
-main div.auth h1 {
+main .auth h1 {
   text-align: center;
   margin-top: 0;
 }
-main div.auth button {
+main .auth button {
   padding: 1rem;
 }
 
-div.alert {
+@media screen and (max-width: 1000px) {
+  div.panels, div.panels div.panel {
+    grid-template-columns: auto auto;
+  }
+}
+@media screen and (max-width: 770px) {
+  div.sidebar {
+    width: 3rem;
+  }
+
+  .sidebar span, .sidebar h1, .sidebar .bottom, .sidebar hr {
+    display: none;
+  }
+
+  .sidebar .item i {
+    font-size: x-large;
+  }
+
+  main.has-sidebar {
+    margin-left: 3rem;
+  }
+
+  div.auth {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 570px) {
+  div.panels, div.panels div.panel {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  div.action button {
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 370px) {
+  div.auth {
+    width: 200px;
+  }
+}
+.alert {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -106,28 +147,31 @@ div.alert {
   border-radius: 10px;
 }
 
-div.panels {
+.panels {
   display: grid;
   grid-template-columns: auto auto auto auto;
   gap: 2rem;
 }
-div.panels div.panel {
+.panels .panel {
   padding: 1rem;
   padding-bottom: 2rem;
   height: 5rem;
   color: #ffffff;
   background: linear-gradient(90deg, rgba(134, 53, 255, 0.9766106951) 0%, rgb(126, 41, 255) 48%, rgba(118, 27, 255, 0.9289916475) 100%);
-  border-radius: 5px;
+  border-radius: 15px;
 }
-div.panels div.panel i {
+.panels .panel i {
   font-size: xx-large;
 }
-div.panels div.panel span.title {
+.panels .panel span.title {
   display: block;
 }
-div.panels div.panel span.value {
+.panels .panel span.value {
   font-size: x-large;
   font-weight: 600;
+}
+.panels.inactive .panel {
+  background: rgba(64, 63, 63, 0.7529411765);
 }
 
 mark.dc {
@@ -154,20 +198,98 @@ button:hover {
   cursor: pointer;
 }
 
+.profile-pic {
+  border-radius: 50%;
+  height: 40px;
+  position: relative;
+  top: 10px;
+  margin-right: 10px;
+}
+
+.actions {
+  display: inline;
+}
+.actions .action {
+  display: inline;
+}
+.actions .action button {
+  padding: 1rem;
+  margin-right: 1rem;
+  font-size: large;
+  font-weight: bold;
+}
+
+.hero {
+  background-image: url("/static/assets/reef.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7137254902);
+  height: 100vh;
+  transition: 10s;
+  text-align: center;
+}
+.hero .branding {
+  margin-top: 0;
+  opacity: 0.5;
+  font-weight: normal;
+}
+.hero .hero-text {
+  font-size: 4rem;
+}
+.hero .hero-text mark {
+  color: white;
+  background-color: #761bff;
+}
+.hero button {
+  font-size: 3rem;
+  background: none;
+}
+.hero:hover {
+  filter: hue-rotate(60deg);
+}
+
+.party {
+  border: 2px solid white;
+  background: linear-gradient(45deg, rgba(134, 53, 255, 0.9766106951) 0%, #2954ff 48%, rgba(118, 27, 255, 0.9289916475) 100%);
+  -webkit-animation: gradient 10s linear infinite;
+          animation: gradient 10s linear infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(120deg);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(120deg);
+  }
+}
 .fg-red {
-  color: #7b0612;
+  color: #8d202b;
 }
 
 .fg-yellow {
-  color: #8d6a00;
+  color: rgba(213, 149, 11, 0.5411764706);
 }
 
 .fg-green {
-  color: #13643e;
+  color: rgba(21, 135, 82, 0.4274509804);
 }
 
 .fg-blue {
-  color: #162b7b;
+  color: #1e3388;
 }
 
 .fg-accent {
@@ -175,17 +297,17 @@ button:hover {
 }
 
 .bg-red {
-  background-color: #7b0612;
+  background-color: #8d202b;
 }
 
 .bg-yellow {
-  background-color: #8d6a00;
+  background-color: rgba(213, 149, 11, 0.5411764706);
 }
 
 .bg-green {
-  background-color: #13643e;
+  background-color: rgba(21, 135, 82, 0.4274509804);
 }
 
 .bg-blue {
-  background-color: #162b7b;
+  background-color: #1e3388;
 }/*# sourceMappingURL=base.css.map */
