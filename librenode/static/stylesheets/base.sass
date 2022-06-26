@@ -3,8 +3,6 @@ $text: #ffffff
 $text-light: #ffffff96
 $accent: #761bff
 $semi-transparent: #ffffff23
-$gradient-accent: linear-gradient(90deg, rgba(134,53,255,0.9766106951408936) 0%, rgba(126,41,255,1) 48%, rgba(118,27,255,0.9289916475218459) 100%)
-$gradient-special: linear-gradient(45deg, rgba(134,53,255,0.9766106951408936) 0%, #2954ff 48%, rgba(118,27,255,0.9289916475218459) 100%)
 $text-accent: #c6a3f9
 $bg: #142136
 $bg-dark: #0d1623
@@ -17,6 +15,14 @@ $yellow: #d5950b8a
 $green: #1587526d
 $blue: #1e3388
 $grey: #403f3fc0
+
+$gradient-accent: linear-gradient(90deg, #6b35fff9 0%, #591ee2 48%, #5822d5ed 100%)
+$gradient-special: linear-gradient(45deg, rgba(134,53,255,0.9766106951408936) 0%, #2954ff 48%, rgba(118,27,255,0.9289916475218459) 100%)
+$gradient-green: linear-gradient(45deg, #117b2af9 0%, #2b893f 48%, #27b90eed 100%)
+$gradient-yellow: linear-gradient(45deg, #7b5f11f9 0%, #8c5e13 48%, #b97d0eed 100%)
+$gradient-red: linear-gradient(45deg, #7b2b11f9 0%, #8c1d13 48%, #b9280eed 100%)
+$gradient-light: linear-gradient(45deg, #7e7638f9 0%, #afab42 48%, #9b8d24ed 100%)
+$gradient-dark: linear-gradient(45deg, #2c253af9 0%, #1f1b3a 48%, #1c1839ed 100%)
 
 // Misc
 $font-stack: system-ui
@@ -158,6 +164,8 @@ main
 
 .panels
     display: grid
+    grid-auto-columns: 1fr
+    grid-auto-flow: column
     grid-template-columns: auto auto auto auto
     gap: 2rem
 
@@ -167,7 +175,7 @@ main
 
         height: 5rem
         color: $text
-        background: linear-gradient(90deg, rgba(134,53,255,0.9766106951408936) 0%, rgba(126,41,255,1) 48%, rgba(118,27,255,0.9289916475218459) 100%)
+        background: $gradient-accent
         border-radius: 15px
 
         i
@@ -269,21 +277,36 @@ button
         filter: hue-rotate(120deg)
 
 .fg-red
-    color: $red
+    color: $red !important
 .fg-yellow
-    color: $yellow
+    color: $yellow !important
 .fg-green
-    color: $green
+    color: $green !important
 .fg-blue
-    color: $blue
+    color: $blue !important
 .fg-accent
-    color: $text-accent
+    color: $text-accent !important
 
 .bg-red
-    background-color: $red
+    background-color: $red !important
 .bg-yellow
-    background-color: $yellow
+    background-color: $yellow !important
 .bg-green
-    background-color: $green
+    background-color: $green !important
 .bg-blue
-    background-color: $blue
+    background-color: $blue !important
+
+.gd-accent
+    background: $gradient-accent !important
+.gd-special
+    background: $gradient-special !important
+.gd-green
+    background: $gradient-green !important
+.gd-yellow
+    background: $gradient-yellow !important
+.gd-red
+    background: $gradient-red !important
+.gd-light
+    background: $gradient-light !important
+.gd-dark
+    background: $gradient-dark !important

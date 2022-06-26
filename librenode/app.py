@@ -5,11 +5,15 @@ os.chdir('..')
 #»——————————————————————————————————————————————————————————————————————————«#
 
 import flask
+import logging
 
 import helpers
 
 from dashboard.dashboard import dashboard_bp
 from accounts.accounts import accounts_bp
+
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 app = flask.Flask(__name__, static_url_path='/static', static_folder='static/')
 helpers.setup(app)

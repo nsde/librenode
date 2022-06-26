@@ -9,11 +9,12 @@
 <main class="has-sidebar">
     <div class="alert bg-yellow">
         <i class="bi bi-exclamation-triangle-fill"></i>
-        <strong>Warning  ·</strong>
-        LibreNode is currently in an experimental alpha state. Bugs can occur.
+        <strong>Warning ·</strong>
+        LibreNode is currently under heavy development. Bugs are expected.
     </div>
 
     <h1>Home</h1>
+
     <h2>Actions</h2>
     <div class="actions">
         <div class="action">
@@ -48,27 +49,53 @@
     </div>
 
     <h2>Status</h2>
+    <h3>Minecraft</h3>
+    
+    <div class="panels">
+        <div class="panel gd-red">
+            <i class="bi bi-people-fill"></i>
+            <span class="title">Players</span>
+            <span class="value">0</span>
+        </div>
+        <div class="panel gd-green">
+            <i class="bi bi-file-earmark-plus"></i>
+            <span class="title">Mods/Plugins</span>
+            <span class="value">0</span>
+        </div>
+        <div class="panel gd-blue">
+            <i class="bi bi-box"></i>
+            <span class="title">Server Type</span>
+            <span class="value">Purpur</span>
+        </div>
+        <div class="panel gd-dark">
+            <i class="bi bi-sunrise"></i>
+            <span class="title">Game time</span>
+            <span class="value">Night</span>
+        </div>
+    </div>
 
-    <div class="panels inactive">
-        <div class="panel">
+    <h3>Hardware</h3>
+
+    <div class="panels active">
+        <div class="panel gd-green">
             <i class="bi bi-activity"></i>
-            <span class="title">Online since</span>
-            <span class="value">{{ online_since or 'OFFLINE' }}</span>
+            <span class="title">Last boot</span>
+            <span class="value">{{ stats_hardware.boot_days }} days</span>
         </div>
-        <div class="panel">
-            <i class="bi bi-people"></i>
-            <span class="title">Online right now</span>
-            <span class="value">{{ player_count or 'No' }} players</span>
+        <div class="panel gd-green">
+            <i class="bi bi-device-ssd-fill"></i>
+            <span class="title">SSD</span>
+            <span class="value">{{ stats_hardware.disk }}</span>
         </div>
-        <div class="panel">
+        <div class="panel gd-green">
             <i class="bi bi-cpu"></i>
             <span class="title">CPU usage</span>
-            <span class="value">{{ cpu or '??' }}%</span>
+            <span class="value">{{ stats_hardware.cpu }}%</span>
         </div>
-        <div class="panel">
+        <div class="panel gd-green">
             <i class="bi bi-memory"></i>
             <span class="title">RAM usage</span>
-            <span class="value">{{ ram or '??'}}%</span>
+            <span class="value">{{ stats_hardware.ram }}</span>
         </div>
     </div>
 </main>

@@ -57,7 +57,7 @@ a:hover {
   padding-right: 10px;
 }
 .sidebar .item.active {
-  background: linear-gradient(90deg, rgba(134, 53, 255, 0.9766106951) 0%, rgb(126, 41, 255) 48%, rgba(118, 27, 255, 0.9289916475) 100%);
+  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #591ee2 48%, rgba(88, 34, 213, 0.9294117647) 100%);
   opacity: 1;
 }
 .sidebar .item:hover {
@@ -149,6 +149,8 @@ main .auth button {
 
 .panels {
   display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
   grid-template-columns: auto auto auto auto;
   gap: 2rem;
 }
@@ -157,7 +159,7 @@ main .auth button {
   padding-bottom: 2rem;
   height: 5rem;
   color: #ffffff;
-  background: linear-gradient(90deg, rgba(134, 53, 255, 0.9766106951) 0%, rgb(126, 41, 255) 48%, rgba(118, 27, 255, 0.9289916475) 100%);
+  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #591ee2 48%, rgba(88, 34, 213, 0.9294117647) 100%);
   border-radius: 15px;
 }
 .panels .panel i {
@@ -277,37 +279,65 @@ button:hover {
   }
 }
 .fg-red {
-  color: #8d202b;
+  color: #8d202b !important;
 }
 
 .fg-yellow {
-  color: rgba(213, 149, 11, 0.5411764706);
+  color: rgba(213, 149, 11, 0.5411764706) !important;
 }
 
 .fg-green {
-  color: rgba(21, 135, 82, 0.4274509804);
+  color: rgba(21, 135, 82, 0.4274509804) !important;
 }
 
 .fg-blue {
-  color: #1e3388;
+  color: #1e3388 !important;
 }
 
 .fg-accent {
-  color: #c6a3f9;
+  color: #c6a3f9 !important;
 }
 
 .bg-red {
-  background-color: #8d202b;
+  background-color: #8d202b !important;
 }
 
 .bg-yellow {
-  background-color: rgba(213, 149, 11, 0.5411764706);
+  background-color: rgba(213, 149, 11, 0.5411764706) !important;
 }
 
 .bg-green {
-  background-color: rgba(21, 135, 82, 0.4274509804);
+  background-color: rgba(21, 135, 82, 0.4274509804) !important;
 }
 
 .bg-blue {
-  background-color: #1e3388;
+  background-color: #1e3388 !important;
+}
+
+.gd-accent {
+  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #591ee2 48%, rgba(88, 34, 213, 0.9294117647) 100%) !important;
+}
+
+.gd-special {
+  background: linear-gradient(45deg, rgba(134, 53, 255, 0.9766106951) 0%, #2954ff 48%, rgba(118, 27, 255, 0.9289916475) 100%) !important;
+}
+
+.gd-green {
+  background: linear-gradient(45deg, rgba(17, 123, 42, 0.9764705882) 0%, #2b893f 48%, rgba(39, 185, 14, 0.9294117647) 100%) !important;
+}
+
+.gd-yellow {
+  background: linear-gradient(45deg, rgba(123, 95, 17, 0.9764705882) 0%, #8c5e13 48%, rgba(185, 125, 14, 0.9294117647) 100%) !important;
+}
+
+.gd-red {
+  background: linear-gradient(45deg, rgba(123, 43, 17, 0.9764705882) 0%, #8c1d13 48%, rgba(185, 40, 14, 0.9294117647) 100%) !important;
+}
+
+.gd-light {
+  background: linear-gradient(45deg, rgba(126, 118, 56, 0.9764705882) 0%, #afab42 48%, rgba(155, 141, 36, 0.9294117647) 100%) !important;
+}
+
+.gd-dark {
+  background: linear-gradient(45deg, rgba(44, 37, 58, 0.9764705882) 0%, #1f1b3a 48%, rgba(28, 24, 57, 0.9294117647) 100%) !important;
 }/*# sourceMappingURL=base.css.map */

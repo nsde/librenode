@@ -1,6 +1,8 @@
 admin_ips.json
 admins.json
 
+# ——————————————————————————————————————— #
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

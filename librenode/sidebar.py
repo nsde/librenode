@@ -5,6 +5,11 @@ NAV = [
         'name': 'Home'
     },
     {
+        'path': 'shop',
+        'icon': 'controller',
+        'name': 'Mods & Plugins',
+    },
+    {
         'path': 'apps',
         'icon': 'plugin',
         'name': 'Integrations'
@@ -18,17 +23,22 @@ NAV = [
         'path': 'files',
         'icon': 'file-earmark',
         'name': 'Files'
-    },    
+    },
     {
-        'path': 'shop',
-        'icon': 'cart',
-        'name': 'Mods & Plugins',
+        'path': 'audit',
+        'icon': 'list-columns-reverse',
+        'name': 'Admin Audit Log',
+    },
+    {
+        'path': 'players',
+        'icon': 'people',
+        'name': 'Player Management',
         'seperate': True
-    },    
+    },
     {
         'path': 'help',
         'icon': 'journal-text',
         'name': 'Help',
         'is_external': True
-    },    
+    },
 ]
