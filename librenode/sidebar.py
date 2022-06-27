@@ -5,6 +5,11 @@ NAV = [
         'name': 'Home'
     },
     {
+        'path': 'setup',
+        'icon': 'plus-square',
+        'name': 'Setup New Node'
+    },
+    {
         'path': 'shop',
         'icon': 'controller',
         'name': 'Mods & Plugins',

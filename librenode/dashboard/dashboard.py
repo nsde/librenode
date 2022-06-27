@@ -19,6 +19,10 @@ def home():
 def shop():
     return flask.render_template('dashboard/templates/shop.html')
 
+@dashboard_bp.route('/setup')
+def setup():
+    return flask.render_template('dashboard/templates/setup.html')
+
 @dashboard_bp.route('/apps')
 def apps():
     return flask.render_template('dashboard/templates/apps.html')

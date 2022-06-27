@@ -1,3 +1,6 @@
+# This is not the runner for nodes!
+# This is the runner for the Flask server!
+
 while true
 do
     echo · Started LibreNode ·

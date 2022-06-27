@@ -12,18 +12,18 @@ import subprocess
 
 import mcipc.query
 
-SERVER_PATH = 'server'
+from .nodes import Node
 
-def get_player_file(name: str) -> list:
-    with open(f'{SERVER_PATH}/{name}.json') as f:
-        return [player['name'] for player in json.load(f)]
+def get_player_file(node: Node, name: str) -> list:
+    with open(f'{node.path}/{name}.json') as f:
+        return [i['name'] for i in json.load(f)]
 
-def minecraft() -> dict:
-    ops = get_player_file('ops')
-    bans = get_player_file('banned-players')
-    ip_bans = get_player_file('banned-ips')
-    whitelist = get_player_file('whitelist')
-    last_players = get_player_file('usercache')
+def minecraft(node: Node) -> dict:
+    ops = get_player_file(node, 'ops')
+    bans = get_player_file(node, 'banned-players')
+    ip_bans = get_player_file(node, 'banned-ips')
+    whitelist = get_player_file(node, 'whitelist')
+    last_players = get_player_file(node, 'usercache')
 
     with mcipc.query.Client('127.0.0.1', 25565) as client:
         server_data = client.stats(full=True)

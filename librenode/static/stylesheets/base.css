@@ -57,7 +57,7 @@ a:hover {
   padding-right: 10px;
 }
 .sidebar .item.active {
-  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #591ee2 48%, rgba(88, 34, 213, 0.9294117647) 100%);
+  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #6a32ed 48%, rgba(88, 34, 213, 0.9294117647) 100%);
   opacity: 1;
 }
 .sidebar .item:hover {
@@ -121,7 +121,7 @@ main .auth button {
   }
 
   div.auth {
-    width: 300px;
+    width: 400px;
   }
 }
 @media screen and (max-width: 570px) {
@@ -133,10 +133,14 @@ main .auth button {
   div.action button {
     margin-bottom: 1rem;
   }
-}
-@media screen and (max-width: 370px) {
+
   div.auth {
-    width: 200px;
+    width: 350px;
+  }
+}
+@media screen and (max-width: 460px) {
+  div.auth {
+    width: 250px;
   }
 }
 .alert {
@@ -152,14 +156,20 @@ main .auth button {
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
   grid-template-columns: auto auto auto auto;
-  gap: 2rem;
+  gap: 1rem;
+}
+.panels.inactive .panel {
+  background: rgba(64, 63, 63, 0.7529411765);
+}
+.panels > a {
+  text-decoration: none;
 }
 .panels .panel {
   padding: 1rem;
   padding-bottom: 2rem;
   height: 5rem;
   color: #ffffff;
-  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #591ee2 48%, rgba(88, 34, 213, 0.9294117647) 100%);
+  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #6a32ed 48%, rgba(88, 34, 213, 0.9294117647) 100%);
   border-radius: 15px;
 }
 .panels .panel i {
@@ -172,8 +182,10 @@ main .auth button {
   font-size: x-large;
   font-weight: 600;
 }
-.panels.inactive .panel {
-  background: rgba(64, 63, 63, 0.7529411765);
+.panels .panel:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  filter: brightness(1.2);
 }
 
 mark.dc {
@@ -189,7 +201,8 @@ input, button {
   border: none;
   border-radius: 10px;
   padding: 0.5rem;
-  background-color: #18273d;
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #6a32ed 48%, rgba(88, 34, 213, 0.9294117647) 100%);
 }
 
 button {
@@ -229,7 +242,7 @@ button:hover {
   background-size: cover;
   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7137254902);
   height: 100vh;
-  transition: 10s;
+  transition: 3s;
   text-align: center;
 }
 .hero .branding {
@@ -254,9 +267,9 @@ button:hover {
 
 .party {
   border: 2px solid white;
-  background: linear-gradient(45deg, rgba(134, 53, 255, 0.9766106951) 0%, #2954ff 48%, rgba(118, 27, 255, 0.9289916475) 100%);
-  -webkit-animation: gradient 10s linear infinite;
-          animation: gradient 10s linear infinite;
+  background: linear-gradient(45deg, rgba(134, 53, 255, 0.97) 0%, #2954ff 48%, rgba(118, 27, 255, 0.92) 100%);
+  -webkit-animation: gradient 2s linear infinite;
+          animation: gradient 2s linear infinite;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
 }
@@ -266,7 +279,7 @@ button:hover {
     filter: hue-rotate(0deg);
   }
   100% {
-    filter: hue-rotate(120deg);
+    filter: hue-rotate(70deg);
   }
 }
 
@@ -275,15 +288,20 @@ button:hover {
     filter: hue-rotate(0deg);
   }
   100% {
-    filter: hue-rotate(120deg);
+    filter: hue-rotate(70deg);
   }
 }
+div.alert a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
 .fg-red {
-  color: #8d202b !important;
+  color: #8d2020 !important;
 }
 
 .fg-yellow {
-  color: rgba(213, 149, 11, 0.5411764706) !important;
+  color: rgba(213, 136, 11, 0.5411764706) !important;
 }
 
 .fg-green {
@@ -299,31 +317,35 @@ button:hover {
 }
 
 .bg-red {
-  background-color: #8d202b !important;
+  background: #8d2020 !important;
 }
 
 .bg-yellow {
-  background-color: rgba(213, 149, 11, 0.5411764706) !important;
+  background: rgba(213, 136, 11, 0.5411764706) !important;
 }
 
 .bg-green {
-  background-color: rgba(21, 135, 82, 0.4274509804) !important;
+  background: rgba(21, 135, 82, 0.4274509804) !important;
 }
 
 .bg-blue {
-  background-color: #1e3388 !important;
+  background: #1e3388 !important;
 }
 
 .gd-accent {
-  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #591ee2 48%, rgba(88, 34, 213, 0.9294117647) 100%) !important;
+  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #6a32ed 48%, rgba(88, 34, 213, 0.9294117647) 100%) !important;
 }
 
 .gd-special {
-  background: linear-gradient(45deg, rgba(134, 53, 255, 0.9766106951) 0%, #2954ff 48%, rgba(118, 27, 255, 0.9289916475) 100%) !important;
+  background: linear-gradient(45deg, rgba(134, 53, 255, 0.97) 0%, #2954ff 48%, rgba(118, 27, 255, 0.92) 100%) !important;
 }
 
 .gd-green {
-  background: linear-gradient(45deg, rgba(17, 123, 42, 0.9764705882) 0%, #2b893f 48%, rgba(39, 185, 14, 0.9294117647) 100%) !important;
+  background: linear-gradient(45deg, rgba(17, 123, 42, 0.9764705882) 0%, rgba(37, 151, 62, 0.7215686275) 48%, rgba(54, 155, 36, 0.7215686275) 100%) !important;
+}
+
+.gd-teal {
+  background: linear-gradient(45deg, rgba(17, 123, 103, 0.9764705882) 0%, rgba(37, 151, 134, 0.7215686275) 48%, rgba(36, 155, 137, 0.7215686275) 100%) !important;
 }
 
 .gd-yellow {
@@ -331,11 +353,11 @@ button:hover {
 }
 
 .gd-red {
-  background: linear-gradient(45deg, rgba(123, 43, 17, 0.9764705882) 0%, #8c1d13 48%, rgba(185, 40, 14, 0.9294117647) 100%) !important;
+  background: linear-gradient(45deg, rgba(123, 31, 17, 0.9764705882) 0%, #8c1d13 48%, rgba(185, 40, 14, 0.9294117647) 100%) !important;
 }
 
 .gd-light {
-  background: linear-gradient(45deg, rgba(126, 118, 56, 0.9764705882) 0%, #afab42 48%, rgba(155, 141, 36, 0.9294117647) 100%) !important;
+  background: linear-gradient(45deg, rgba(126, 118, 56, 0.9764705882) 0%, rgba(175, 171, 66, 0.8823529412) 48%, rgba(155, 141, 36, 0.9294117647) 100%) !important;
 }
 
 .gd-dark {

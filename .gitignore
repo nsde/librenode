@@ -1,6 +1,9 @@
 admin_ips.json
 admins.json
 
+nodes/*
+!.gitkeep
+
 # ——————————————————————————————————————— #
 
 # Byte-compiled / optimized / DLL files

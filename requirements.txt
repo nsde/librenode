@@ -1,3 +1,4 @@
+wget
 flask
 python-dotenv
 requests-oauthlib
