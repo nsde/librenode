@@ -1,0 +1,101 @@
+{% with title="Setup New Node" %}
+    {% include "components/top.html" %}
+{% endwith %}
+
+{% with page="setup" %}
+    {% include "components/sidebar.html" %}
+{% endwith %}
+
+<main class="has-sidebar">
+    <div class="alert bg-yellow">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <strong>Notice ·</strong>
+        By creating a new server node, you hereby accept Minecraft's <a href="https://www.minecraft.net/en-us/eula">End User License Agreement (EULA)</a>! 
+    </div>
+
+    <h1>Create a new node</h1>
+    <h2>Choose a Minecraft server software</h2>
+
+    <i
+
+    <div class="panels">
+        <a href="/setup/purpur">
+            <div class="panel gd-accent">
+                <span class="value">Purpur 1.19</span>
+                <span class="title">
+                    <i class="bi bi-check"></i> Plugins
+                    <i class="bi bi-x"></i> Mods
+                    <i class="bi bi-check"></i> Datapacks
+                </span>
+            </div>
+        </a>
+        <a href="/setup/fabric">
+            <div class="panel gd-light">
+                <span class="value">Fabric 1.16.5</span>
+                <span class="title">
+                    <i class="bi bi-x"></i> Plugins
+                    <i class="bi bi-check"></i> Mods
+                    <i class="bi bi-check"></i> Datapacks
+                </span>
+            </div>
+        </a>
+        <a href="/setup/forge">
+            <div class="panel gd-yellow">
+                <span class="value">Forge 1.12.2</span>
+                <span class="title">
+                    <i class="bi bi-x"></i> Plugins
+                    <i class="bi bi-check"></i> Mods
+                    <i class="bi bi-x"></i> Datapacks
+                </span>
+            </div>
+        </a>
+        <a href="/setup/paper">
+        <div class="panel gd-teal">
+            <span class="value">Paper 1.8.8</span>
+            <span class="title">
+                <i class="bi bi-check"></i> Plugins
+                    <i class="bi bi-x"></i> Mods
+                    <i class="bi bi-x"></i> Datapacks
+                </span>
+            </div>
+        </a>
+    </div>
+
+    <h2>FAQ</h2>
+    <h3>Why isn't there a "vanilla" option?</h3>
+    <p>
+        The answer is simple: there are just not a lot of reasons for it. Alternatives such as Paper and Purpur not only improve
+        performance drastically, but also add new options and support for plugins.
+        <br>
+        Players don't need to install anything additionally to join servers which support plugins.
+    </p>
+    
+    <h3>Why should I always use the latest Minecraft version?</h3>
+    <p>
+        One of the most important reasons is security. Older versions of Minecraft aren't supported and can lead to
+        security vulnerabilities and other problems. Want the 1.8 PvP experience? Well, several mods and plugins can simulate exactly that.
+        For example, using <i>LabyMod</i> can provide for more or less the same PvP experience as in 1.8.
+    </p>
+
+    <h3>Plugins & Mods - what's the difference?</h3>
+    <p>
+        Plugins don't need to be installed on the client (on the computers of the players) - but they have some drawbacks.
+        For example, plugins can't really add new textures, sounds, or 3D models. Sometimes, workarounds are used, like player
+        heads as mini-blocks or similar. Plugins <i>can</i>, in fact, add commands, gameplay changes and more.
+        <br>
+        You <i>should</i> use mods though when you want to play with completely new features, such as new monsters, blocks, items, and more.
+    </p>
+    
+    <h3>How can I install & use datapacks?</h3>
+    <p>
+        Datapacks can be installed on all Minecraft servers with version 1.13 (17w43a) and above.
+        Also, datapack support is a feature by Minecraft, not by its modded server software such as Fabric, Forge, Purpur, Paper and more.
+        <br>
+        Moreover, Datapacks don't need to be installed on clients (the computers of the players), just on the server.
+        <br>
+        <a href="https://minecraft.fandom.com/wiki/Data_pack"><button>Learn more</button></a>
+    </p>
+
+</main>
+
+{% include "components/end.html" %}
