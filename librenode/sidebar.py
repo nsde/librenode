@@ -47,3 +47,8 @@ NAV = [
         'is_external': True
     },
 ]
+
+PATHS = [i['path'] for i in NAV]
+
+if __name__ == '__main__':
+    print(PATHS)

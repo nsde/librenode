@@ -39,6 +39,14 @@ def setup(app: flask.Flask):
                 if not has_access_session:
                     return flask.redirect('/login?session=new')
 
+    @app.route('/<page>/↑')
+    def move_up(page):
+        return flask.redirect('/' + sidebar.PATHS[sidebar.PATHS.index(page)-1])
+
+    @app.route('/<page>/↓')
+    def move_down(page):
+        return flask.redirect('/' + sidebar.PATHS[sidebar.PATHS.index(page)+1])
+
 def show(*args, **kwargs):
     html = flask.render_template(*args, **kwargs)
 

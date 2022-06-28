@@ -13,7 +13,7 @@ accounts_bp = flask.Blueprint('accounts_bp',
     __name__,
     template_folder='../'
 )
-os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '0' # change this to '1' if you're running this on localhost!
 
 API_URL = 'https://discordapp.com/api'
 CLIENT_ID = str(os.getenv('DISCORD_CLIENT_ID'))
@@ -48,7 +48,7 @@ def login():
             authorization_response=flask.request.url,
         )
         flask.session['discord_token'] = token
-        return flask.redirect('/login') # LOG IN
+        return flask.redirect('/login')
 
     if flask.session.get('discord_token'): # ALREADY LOGGED IN
         discord_account = OAuth2Session(CLIENT_ID, token=flask.session['discord_token'])
@@ -66,12 +66,8 @@ def login():
             admin_ips.append(tools.ip(flask.request))
             json.dump(admin_ips, open('librenode/admin_ips.json', 'w'))
 
-        return flask.redirect('/') # done
+        return flask.redirect('/') # DONE
 
     else: # CONNECT WITH DISCORD
         admins = list(json.load(open('librenode/admins.json')).keys())
         return flask.render_template('accounts/templates/home.html', is_new_session=flask.request.args.get('session') == 'new', admins=admins)
-
-@accounts_bp.url_value_preprocessor
-def store_user_token(endpoint, values):
-    print(endpoint, values)

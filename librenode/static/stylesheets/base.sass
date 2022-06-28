@@ -2,19 +2,22 @@
 $text: #ffffff
 $text-light: #ffffff96
 $accent: #761bff
+$accent-special: #6a32ed
 $semi-transparent: #ffffff23
 $text-accent: #c6a3f9
-$bg: #142136
-$bg-dark: #0d1623
+$bg: #1f1b3e
+$bg-dark: #2b275f
 $shadow: #000000b6
-$input: #18273d
+$input: #433d862a
 
 // Other Colors
-$red: #8d2020
-$yellow: #d5880b8a
-$green: #1587526d
-$blue: #1e3388
+$red: #8d2020db
+$yellow: #d5880bc5
+$green: #158752c0
+$blue: #1e3388e1
 $grey: #403f3fc0
+
+// Gradients
 
 $gradient-accent: linear-gradient(90deg, #6b35fff9 0%, #6a32ed 48%, #5822d5ed 100%)
 $gradient-special: linear-gradient(45deg, rgba(134,53,255,0.97) 0%, #2954ff 48%, rgba(118,27,255,0.92) 100%)
@@ -59,7 +62,7 @@ a
     width: $sidebar-width
     padding: 1rem
     background-color: $bg-dark
-    box-shadow: 5px 0px 20px $shadow
+    box-shadow: 0px 0px 20px $bg-dark
 
     h1
         margin-top: 0
@@ -116,7 +119,7 @@ main
         border-radius: 10px
         // height: 80vh
         background-color: $bg-dark
-        box-shadow: 0 0px 15px $shadow
+        box-shadow: 0 0px 5px $bg-dark
 
         h1
             text-align: center
@@ -213,13 +216,31 @@ mark.dc
 input, button
     color: white
     border: none
-    border-radius: 10px
+    font-size: large
     padding: 0.5rem
     margin-top: 0.5rem
-    background: $gradient-accent
+    background: $input
+    border-radius: 10px
+
+div.inline
+    display: inline
+
+    >*
+        display: inline
+
+fieldset
+    width: fit-content
+    border-radius: 10px
+    margin-bottom: 1rem
+    border: 1px solid $semi-transparent
+    
+    legend
+        font-weight: bold
+        padding-left: 5px
+        padding-right: 5px
 
 button
-    font-size: large
+    background: $gradient-accent
 
     &:hover
         opacity: 0.6
@@ -277,9 +298,9 @@ button
         filter: hue-rotate(60deg)
 
 .party
-    border: 2px solid white
-    background: $gradient-special
-    // background-size: 600% 100%
+    // border: 2px solid white
+    background: $blue
+    box-shadow: 0px 0px 20px $accent-special
     animation: gradient 2s linear infinite
     animation-direction: alternate
 
@@ -292,6 +313,8 @@ button
 div.alert a
     color: $text
     text-decoration: underline
+
+
 
 .fg-red
     color: $red !important

@@ -9,7 +9,7 @@ html {
 
 body {
   color: #ffffff;
-  background-color: #142136;
+  background-color: #1f1b3e;
   margin: 0;
 }
 
@@ -30,8 +30,8 @@ a:hover {
   overflow-x: hidden;
   width: 16rem;
   padding: 1rem;
-  background-color: #0d1623;
-  box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.7137254902);
+  background-color: #2b275f;
+  box-shadow: 0px 0px 20px #2b275f;
 }
 .sidebar h1 {
   margin-top: 0;
@@ -87,8 +87,8 @@ main .auth {
   width: 500px;
   margin: 0 auto;
   border-radius: 10px;
-  background-color: #0d1623;
-  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.7137254902);
+  background-color: #2b275f;
+  box-shadow: 0 0px 5px #2b275f;
 }
 main .auth h1 {
   text-align: center;
@@ -199,14 +199,36 @@ mark.dc {
 input, button {
   color: white;
   border: none;
-  border-radius: 10px;
+  font-size: large;
   padding: 0.5rem;
   margin-top: 0.5rem;
-  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #6a32ed 48%, rgba(88, 34, 213, 0.9294117647) 100%);
+  background: rgba(67, 61, 134, 0.1647058824);
+  border-radius: 10px;
+}
+
+div.inline {
+  display: inline;
+}
+div.inline > * {
+  display: inline;
+}
+
+fieldset {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.137254902);
+}
+fieldset legend {
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 button {
-  font-size: large;
+  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #6a32ed 48%, rgba(88, 34, 213, 0.9294117647) 100%);
 }
 button:hover {
   opacity: 0.6;
@@ -266,8 +288,8 @@ button:hover {
 }
 
 .party {
-  border: 2px solid white;
-  background: linear-gradient(45deg, rgba(134, 53, 255, 0.97) 0%, #2954ff 48%, rgba(118, 27, 255, 0.92) 100%);
+  background: rgba(30, 51, 136, 0.8823529412);
+  box-shadow: 0px 0px 20px #6a32ed;
   -webkit-animation: gradient 2s linear infinite;
           animation: gradient 2s linear infinite;
   -webkit-animation-direction: alternate;
@@ -297,19 +319,19 @@ div.alert a {
 }
 
 .fg-red {
-  color: #8d2020 !important;
+  color: rgba(141, 32, 32, 0.8588235294) !important;
 }
 
 .fg-yellow {
-  color: rgba(213, 136, 11, 0.5411764706) !important;
+  color: rgba(213, 136, 11, 0.7725490196) !important;
 }
 
 .fg-green {
-  color: rgba(21, 135, 82, 0.4274509804) !important;
+  color: rgba(21, 135, 82, 0.7529411765) !important;
 }
 
 .fg-blue {
-  color: #1e3388 !important;
+  color: rgba(30, 51, 136, 0.8823529412) !important;
 }
 
 .fg-accent {
@@ -317,19 +339,19 @@ div.alert a {
 }
 
 .bg-red {
-  background: #8d2020 !important;
+  background: rgba(141, 32, 32, 0.8588235294) !important;
 }
 
 .bg-yellow {
-  background: rgba(213, 136, 11, 0.5411764706) !important;
+  background: rgba(213, 136, 11, 0.7725490196) !important;
 }
 
 .bg-green {
-  background: rgba(21, 135, 82, 0.4274509804) !important;
+  background: rgba(21, 135, 82, 0.7529411765) !important;
 }
 
 .bg-blue {
-  background: #1e3388 !important;
+  background: rgba(30, 51, 136, 0.8823529412) !important;
 }
 
 .gd-accent {

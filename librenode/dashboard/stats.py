@@ -9,14 +9,29 @@ import psutil
 import distro
 import requests
 import subprocess
-
 import mcipc.query
+
+from nbt import nbt
 
 from .nodes import Node
 
 def get_player_file(node: Node, name: str) -> list:
-    with open(f'{node.path}/{name}.json') as f:
+    with open(node.get_file(name)) as f:
         return [i['name'] for i in json.load(f)]
+
+def get_ingame_time(node: Node) -> str:
+    ingame_time = nbt.NBTFile(f'{node.path}/world/level.dat')[0]['Time'].value % 24000
+
+    if ingame_time <= 6000:
+        time_name = 'day'
+    if ingame_time > 6000:
+        time_name = 'noon'
+    if ingame_time > 13000:
+        time_name = 'night'
+    if ingame_time > 18000:
+        time_name = 'midnight'
+
+    return time_name  
 
 def minecraft(node: Node) -> dict:
     ops = get_player_file(node, 'ops')
@@ -44,6 +59,8 @@ def minecraft(node: Node) -> dict:
         'ops': ops,
         'normal_bans': bans,
         'ip_bans': ip_bans,
+
+        'time': get_ingame_time(node),
     }
 
 def hardware() -> dict:

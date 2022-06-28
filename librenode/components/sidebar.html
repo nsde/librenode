@@ -24,3 +24,17 @@
         <a href="https://github.com/nsde/librenode">🇺🇦 Слава Україні</a>
     </div>
 </div>
+
+<script>
+    document.onkeydown = keydown; 
+
+    function keydown (evt) { 
+        if (!evt) evt = event;
+        if (evt.altKey && evt.key === 'ArrowUp') {
+            window.location.href+='/↑';
+        }
+        else if (evt.altKey && evt.key === 'ArrowDown') { 
+            window.location.href+='/↓';
+        }
+    }
+</script>

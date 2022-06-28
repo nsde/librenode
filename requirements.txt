@@ -1,4 +1,6 @@
+nbt
 wget
 flask
 python-dotenv
 requests-oauthlib
+minecraft-launcher-lib
