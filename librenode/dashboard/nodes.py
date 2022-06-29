@@ -215,15 +215,13 @@ class Node:
 
         self.shell(f'screen -X -S {self.screen} kill')
 
-    def kill_all(self, force=False): -> None:
+    def kill_all(self, force=False) -> None:
         """Stops all running Java processes. Very dangerous, but sometimes needed.
         """
         if not self.is_active:
-            raise NodeException('This node is already inactive! Can\'t stop an inactive node.')
+            raise NodeException('This node is already inactive! Use force=True to continue anyway.')
 
-        self.shell(f'screen -X -S {self.screen} kill')
-
-        killall -9 java
+        self.shell('killall -9 java')
 
 if __name__ == '__main__':
     # print(list_all())
