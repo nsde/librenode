@@ -27,6 +27,7 @@ $gradient-yellow: linear-gradient(45deg, #7b5f11f9 0%, #8c5e13 48%, #b97d0eed 10
 $gradient-red: linear-gradient(45deg, #7b1f11f9 0%, #8c1d13 48%, #b9280eed 100%)
 $gradient-light: linear-gradient(45deg, #7e7638f9 0%, #afab42e1 48%, #9b8d24ed 100%)
 $gradient-dark: linear-gradient(45deg, #2c253af9 0%, #1f1b3a 48%, #1c1839ed 100%)
+$gradient-bg: linear-gradient(90deg, #00000000 0%, #00000000 90%, #1f1b3e 100%)
 
 // Misc
 $font-stack: system-ui
@@ -176,6 +177,9 @@ main
     grid-template-columns: auto auto auto auto
     gap: 1rem
 
+    button
+        background: none
+
     &.inactive .panel
         background: $grey
 
@@ -238,6 +242,11 @@ fieldset
         font-weight: bold
         padding-left: 5px
         padding-right: 5px
+    
+    span
+        display: block        
+        margin-top: 5px
+        margin-bottom: 5px
 
 button
     background: $gradient-accent
@@ -314,7 +323,32 @@ div.alert a
     color: $text
     text-decoration: underline
 
+select
+    color: $text
+    border: none
+    font-size: large
+    border-radius: 5px
+    padding: 5px
+    background-color: $input
 
+input[type=checkbox]
+    transform: scale(1.5)
+    transition: 1
+
+    &:hover
+        opacity: 0.8
+        cursor: pointer
+    
+    &:active
+        opacity: 0.3
+    
+    &:checked
+        box-shadow: 0 0 10px $blue
+        filter: hue-rotate(35deg) saturate(2)
+    
+    &:not(:checked)
+        filter: saturate(2)
+        box-shadow: 0 0 5px $red
 
 .fg-red
     color: $red !important

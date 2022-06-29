@@ -14,65 +14,98 @@
     </div>
 
     <h1>Create a new node</h1>
-    <h2>Choose a Minecraft server software</h2>
-
-    <div class="inline">
-        <fieldset>
-            <legend>Node name</legend>
-            <input name="node-name" placeholder="PvP Project">
-        </fieldset>
-        <fieldset>
-            <legend>Port</legend>
-            <input name="node-name" placeholder="PvP Project">
-        </fieldset>
-        <fieldset>
-            <legend>Max Player Count</legend>
-            <input name="node-name" placeholder="PvP Project">
-        </fieldset>
-    </div>
-
-    <div class="panels">
-        <a href="/setup/purpur">
-            <div class="panel gd-accent">
-                <span class="value">Purpur 1.19</span>
+    <h2>Configure node settings</h2>
+    
+    <form action="setup" method="post">
+        <div class="inline fields">
+            <fieldset>
+                <legend>Name</legend>
+                <input name="name" placeholder="PvP Project" required>
+                <span>Choose a descriptive name for your node.</span>
+            </fieldset>
+            <fieldset>
+                <legend>Max Player Count</legend>
+                <input name="max-players" placeholder="20" value="20">
+                <span>How many players are allowed to play at once.</span>
+            </fieldset>
+            <fieldset>
+                <legend>Allow PvP</legend>
+                <input type="checkbox" name="pvp" checked>
+                <span>If players are allowed to fight each other.</span>
+            </fieldset>
+            <fieldset>
+                <legend>Difficulty</legend>
+                <select name="difficulty">
+                <option value="peaceful">Peaceful</option>
+                <option value="easy">Easy</option>
+                <option value="normal">Normal</option>
+                <option value="hard">Hard</option>
+                <option value="hardcore">Hardcore
+                </select>     
+                <span>See <a href="https://minecraft.fandom.com/wiki/Difficulty">here</a> to learn more.</span>
+            </fieldset>
+            <fieldset>
+                <legend>Anti X-Ray</legend>
+                <input type="checkbox" name="anti-xray" checked>
+                <span><a href="https://docs.papermc.io/paper/anti-xray">This</a> will make it more difficult for cheaters to use X-Ray.</span>
+            </fieldset>
+            <fieldset>
+                <legend>Seed</legend>
+                <input name="seed" placeholder="217293847239847" value="">
+                <span>Leave this empty to pick a random <a href="https://minecraft.fandom.com/wiki/Seed_(level_generation)">seed</a>.</span>
+            </fieldset>
+            <fieldset>
+                <legend>Port</legend>
+                <input name="port" placeholder="25565" value="25565">
+                <span>Don't change this unless you know <a href="https://wikiless.org/wiki/Port_(computer_networking)">what it does</a>!</span>
+            </fieldset>
+        </div>
+        
+        <h2>Choose a Minecraft server software</h2>
+        
+        <div class="panels">
+            <button type="submit" formaction="/setup/purpur">
+                <div class="panel gd-accent">
+                    <span class="value">Purpur 1.19</span>
+                    <span class="title">
+                        <i class="bi bi-check"></i> Plugins
+                        <i class="bi bi-x"></i> Mods
+                        <i class="bi bi-check"></i> Datapacks
+                    </span>
+                </div>
+            </button>
+            <button type="submit" formaction="/setup/fabric">
+                <div class="panel gd-light">
+                    <span class="value">Fabric 1.16.5</span>
+                    <span class="title">
+                        <i class="bi bi-x"></i> Plugins
+                        <i class="bi bi-check"></i> Mods
+                        <i class="bi bi-check"></i> Datapacks
+                    </span>
+                </div>
+            </button>
+            <button type="submit" formaction="/setup/forge">
+                <div class="panel gd-yellow">
+                    <span class="value">Forge 1.12.2</span>
+                    <span class="title">
+                        <i class="bi bi-x"></i> Plugins
+                        <i class="bi bi-check"></i> Mods
+                        <i class="bi bi-x"></i> Datapacks
+                    </span>
+                </div>
+            </button>
+            <button type="submit" formaction="/setup/paper">
+            <div class="panel gd-teal">
+                <span class="value">Paper 1.8.8</span>
                 <span class="title">
                     <i class="bi bi-check"></i> Plugins
-                    <i class="bi bi-x"></i> Mods
-                    <i class="bi bi-check"></i> Datapacks
-                </span>
-            </div>
-        </a>
-        <a href="/setup/fabric">
-            <div class="panel gd-light">
-                <span class="value">Fabric 1.16.5</span>
-                <span class="title">
-                    <i class="bi bi-x"></i> Plugins
-                    <i class="bi bi-check"></i> Mods
-                    <i class="bi bi-check"></i> Datapacks
-                </span>
-            </div>
-        </a>
-        <a href="/setup/forge">
-            <div class="panel gd-yellow">
-                <span class="value">Forge 1.12.2</span>
-                <span class="title">
-                    <i class="bi bi-x"></i> Plugins
-                    <i class="bi bi-check"></i> Mods
-                    <i class="bi bi-x"></i> Datapacks
-                </span>
-            </div>
-        </a>
-        <a href="/setup/paper">
-        <div class="panel gd-teal">
-            <span class="value">Paper 1.8.8</span>
-            <span class="title">
-                <i class="bi bi-check"></i> Plugins
-                    <i class="bi bi-x"></i> Mods
-                    <i class="bi bi-x"></i> Datapacks
-                </span>
-            </div>
-        </a>
-    </div>
+                        <i class="bi bi-x"></i> Mods
+                        <i class="bi bi-x"></i> Datapacks
+                    </span>
+                </div>
+            </button>
+        </div>
+    </form>
 
     <h2>FAQ</h2>
     <h3>Why isn't there a "vanilla" option?</h3>

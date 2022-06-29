@@ -13,7 +13,7 @@ def root():
 
 @dashboard_bp.route('/home')
 def home():
-    return flask.render_template('dashboard/templates/home.html', stats_minecraft={}, stats_hardware=stats.hardware())
+    return flask.render_template('dashboard/templates/home.html', stats_minecraft={}, stats_hardware=stats.hardware(), action=flask.request.args.get('action'))
 
 @dashboard_bp.route('/shop')
 def shop():

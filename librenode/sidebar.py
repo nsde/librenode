@@ -5,11 +5,6 @@ NAV = [
         'name': 'Home'
     },
     {
-        'path': 'setup',
-        'icon': 'plus-square',
-        'name': 'Setup New Node'
-    },
-    {
         'path': 'shop',
         'icon': 'controller',
         'name': 'Mods & Plugins',
@@ -41,7 +36,12 @@ NAV = [
         'seperate': True
     },
     {
-        'path': 'help',
+        'path': 'setup',
+        'icon': 'plus-square',
+        'name': 'Setup New Node'
+    },
+    {
+        'path': 'redirect/to/https://github.com/nsde/librenode/blob/master/docs/help.md',
         'icon': 'journal-text',
         'name': 'Help',
         'is_external': True

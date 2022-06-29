@@ -9,8 +9,9 @@ import logging
 
 import helpers
 
-from dashboard.dashboard import dashboard_bp
+from dashboard.setups import setups_bp
 from accounts.accounts import accounts_bp
+from dashboard.dashboard import dashboard_bp
 
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
@@ -18,7 +19,8 @@ log.setLevel(logging.ERROR)
 app = flask.Flask(__name__, static_url_path='/static', static_folder='static/')
 helpers.setup(app)
 
-app.register_blueprint(dashboard_bp)
+app.register_blueprint(setups_bp)
 app.register_blueprint(accounts_bp)
+app.register_blueprint(dashboard_bp)
 
 app.run(port=7878, debug=True)

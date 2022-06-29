@@ -158,6 +158,9 @@ main .auth button {
   grid-template-columns: auto auto auto auto;
   gap: 1rem;
 }
+.panels button {
+  background: none;
+}
 .panels.inactive .panel {
   background: rgba(64, 63, 63, 0.7529411765);
 }
@@ -225,6 +228,11 @@ fieldset legend {
   font-weight: bold;
   padding-left: 5px;
   padding-right: 5px;
+}
+fieldset span {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 button {
@@ -316,6 +324,35 @@ button:hover {
 div.alert a {
   color: #ffffff;
   text-decoration: underline;
+}
+
+select {
+  color: #ffffff;
+  border: none;
+  font-size: large;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgba(67, 61, 134, 0.1647058824);
+}
+
+input[type=checkbox] {
+  transform: scale(1.5);
+  transition: 1;
+}
+input[type=checkbox]:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+input[type=checkbox]:active {
+  opacity: 0.3;
+}
+input[type=checkbox]:checked {
+  box-shadow: 0 0 10px rgba(30, 51, 136, 0.8823529412);
+  filter: hue-rotate(35deg) saturate(2);
+}
+input[type=checkbox]:not(:checked) {
+  filter: saturate(2);
+  box-shadow: 0 0 5px rgba(141, 32, 32, 0.8588235294);
 }
 
 .fg-red {

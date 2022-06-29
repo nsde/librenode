@@ -47,6 +47,10 @@ def setup(app: flask.Flask):
     def move_down(page):
         return flask.redirect('/' + sidebar.PATHS[sidebar.PATHS.index(page)+1])
 
+    @app.route('/redirect/to/<path:subpath>')
+    def redirect_to(subpath):
+        return flask.redirect(subpath.replace(':/', '://'))
+
 def show(*args, **kwargs):
     html = flask.render_template(*args, **kwargs)
 
