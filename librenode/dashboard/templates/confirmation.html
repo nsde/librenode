@@ -1,0 +1,24 @@
+{% with title="Confirmation" %}
+{% include "components/top.html" %}
+{% endwith %}
+
+<main class="">
+    <div class="confirm-fullheight" style="height: 100vh;">
+        <div class="alert bg-red">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <strong>Warning ·</strong>
+            Abusing this button might get your account permanently banned.
+        </div>
+    
+        <h1>Confirmation</h1>
+        <h2>Are you sure you want to <u>permanently delete the whole node</u>?</h2>
+        <h3>This <i>can't</i> be undone!</h3>
+
+        <p>To confirm that you really want to delete the whole node including all its data, scroll down.</p>
+    </div>
+
+    <a href="/server/reset/confirm"><button class="bg-red">I am fully aware what this button does and that the deletion of the node can't be undone.</button></a>
+
+</main>
+
+{% include "components/end.html" %}

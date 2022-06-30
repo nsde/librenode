@@ -7,12 +7,28 @@ def data(url: str, use_headers=False):
     return requests.get(url, headers=headers).json()
 
 def download(url: str, path: str):
-    path = f'{path}/server.jar'
     
-    with open(path, 'wb') as f:
+    server_software = {
+        'purpurmc.org': 'Purpur',
+        'papermc.io': 'Paper'
+    }
+
+    for domain in server_software:
+        if domain in url:
+            current_software = server_software[domain]
+
+    with open(f'{path}/server.jar', 'wb') as f:
         f.write(requests.get(url).content)
     
-    return path
+    with open(f'{path}/node.json', 'w') as f:
+        json.dump(
+            {
+                'url': url,
+                'path': path,
+                'software': current_software
+            },
+        f
+        )
 
 def purpur_versions() -> list:
     return data('https://api.purpurmc.org/v2/purpur')['versions']

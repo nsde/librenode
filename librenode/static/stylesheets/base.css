@@ -162,7 +162,7 @@ main .auth button {
   background: none;
 }
 .panels.inactive .panel {
-  background: rgba(64, 63, 63, 0.7529411765);
+  opacity: 0.2 !important;
 }
 .panels > a {
   text-decoration: none;

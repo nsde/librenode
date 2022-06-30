@@ -1,4 +1,6 @@
 import os
+import time
+import json
 import shutil
 import subprocess
 
@@ -90,7 +92,7 @@ class Node:
         self.screen = f'node-{self.id}'
         self.path = f'nodes/{self.id}' # folder of the node
 
-        self.setup() # create the node if it doesn't exist yet
+        # self.setup() # create the node if it doesn't exist yet
 
     def remove(self) -> None:
         """Removes the files and folders of the node.
@@ -98,7 +100,7 @@ class Node:
         if self.is_active: # if the server is still running
             self.stop() # shut the server down
 
-        while os.listdir(self.path): # not empty
+        while self.exists: # not empty
             time.sleep(0.1) # wait a bit
             shutil.rmtree(self.path)
 
@@ -108,26 +110,26 @@ class Node:
         Raises:
             NodeException: If no Minecraft version argument was given.
         """
-        if not os.path.exists(self.path): # node does not exist
-            if not self.minecraft_version:
-                raise NodeException('Please a provide a valid Minecraft version argument!')
+        if not self.minecraft_version:
+            raise NodeException('This node does not exist (yet?). Please a provide a valid Minecraft version argument to create it!')
 
+        if not self.exists:
             os.mkdir(self.path) # create the directory
 
-            VARS = {
-                '<java_binary>': get_java_binary(self.minecraft_version),
-                '<minecraft_version>': self.minecraft_version,
-                '<path>': self.path,
-                '<port>': str(self.port),
-                '<max_players>': str(self.max_players)
-            }
+        VARS = {
+            '<java_binary>': get_java_binary(self.minecraft_version),
+            '<minecraft_version>': self.minecraft_version,
+            '<path>': self.path,
+            '<port>': str(self.port),
+            '<max_players>': str(self.max_players)
+        }
 
-            run_sh_content = open('tools/start_node.sh').read() # run.sh template
-            run_sh_content = replacer(run_sh_content, VARS) # match variables
+        run_sh_content = open('tools/start_node.sh').read() # run.sh template
+        run_sh_content = replacer(run_sh_content, VARS) # match variables
 
-            self.write_to('run.sh', run_sh_content) # write to run.sh
+        self.write_to('run.sh', run_sh_content) # write to run.sh
 
-            self.shell(f'sudo chmod +x {self.get_file("run.sh")}') # enable execution access
+        self.shell(f'sudo chmod +x {self.get_file("run.sh")}') # enable execution access
 
     def get_file(self, name: str) -> str:
         """Gets the correct full absolute file path for the given file name.
@@ -138,7 +140,20 @@ class Node:
         Returns:
             str: The full absolute path.
         """
-        return os.path.join(self.path, name)
+
+        if not '/' in name:
+            return os.path.join(self.path, name)
+        return self.path + '/' + name
+
+    def read_from(self, name: str) -> str:
+        """Simply reads a file.
+
+        Args:
+            name (str): File name.
+        """
+
+        with open(self.get_file(name), 'r') as f:
+            return f.read()
 
     def write_to(self, name: str, content: str):
         """Simply writes content to a file.
@@ -213,21 +228,37 @@ class Node:
         if not self.is_active:
             raise NodeException('This node is already inactive! Can\'t stop an inactive node.')
 
+        self.command('stop')
+        time.sleep(5)
         self.shell(f'screen -X -S {self.screen} kill')
 
     def kill_all(self, force=False) -> None:
         """Stops all running Java processes. Very dangerous, but sometimes needed.
         """
-        if not self.is_active:
-            raise NodeException('This node is already inactive! Use force=True to continue anyway.')
+        if not self.is_active and not force:
+            raise NodeException('''
+This node is already inactive!
+Use force=True to continue anyway.
+Be aware that this function can also kill Java processes that have nothing to do with LibreNode!
+        ''')
 
         self.shell('killall -9 java')
 
+    @property
+    def exists(self) -> bool:
+        return os.path.exists(self.path)
+
+    @property
+    def details(self) -> dict:
+        with open(f'{self.path}/node.json', 'r') as f:
+            return json.load(f)
+
 if __name__ == '__main__':
     # print(list_all())
-    test_node = Node('testing_demo', '1.18.2', max_players=42)
+    test_node = Node('base')
     # downloads.download(downloads.purpur_url(), test_node.path)
     # test_node.start()
-    # print(test_node.is_active)
+    print(test_node.exists)
+    print(test_node.read_from('logs/latest.log'))
     # test_node.command('kill @e')
-    test_node.remove()
+    # test_node.remove()

@@ -1,5 +1,7 @@
+import time
 import flask
 
+from . import nodes
 from . import stats
 
 dashboard_bp = flask.Blueprint('dashboard_bp',
@@ -13,7 +15,15 @@ def root():
 
 @dashboard_bp.route('/home')
 def home():
-    return flask.render_template('dashboard/templates/home.html', stats_minecraft={}, stats_hardware=stats.hardware(), action=flask.request.args.get('action'))
+    base = nodes.Node(name='base')
+
+    return flask.render_template(
+        'dashboard/templates/home.html',
+        stats_mc=stats.minecraft(base),
+        stats_hw=stats.hardware(),
+        action=flask.request.args.get('action'),
+        is_active=base.is_active
+    )
 
 @dashboard_bp.route('/shop')
 def shop():
@@ -27,16 +37,27 @@ def setup():
 def apps():
     return flask.render_template('dashboard/templates/apps.html')
 
-@dashboard_bp.route('/terminal')
+@dashboard_bp.route('/terminal', methods=['GET', 'POST'])
 def terminal():
-    return flask.render_template('dashboard/templates/terminal.html')
+    base = nodes.Node('base')
+
+    form = flask.request.form.to_dict()
+    if form.get('command'):
+        base.command(form.get('command'))
+        time.sleep(0.1)
+
+    log = base.read_from('logs/latest.log')
+    log = log.split('\n')
+    log.reverse()
+    log = log[:100]
+    return flask.render_template('dashboard/templates/terminal.html', node_log='\n'.join(log), inactive=not base.is_active)
 
 @dashboard_bp.route('/files')
 def files():
     return flask.render_template('dashboard/templates/files.html')
 
 @dashboard_bp.route('/audit')
-def audit():
+def audit_log():
     return flask.render_template('dashboard/templates/audit.html')
 
 @dashboard_bp.route('/players')

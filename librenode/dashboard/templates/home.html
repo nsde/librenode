@@ -19,20 +19,44 @@
         <i class="bi bi-check2"></i>
         <strong>Success ·</strong>
         All settings have been applied successfully, and the node has been updated.
-    </div>    
+    </div>
+    {% elif action == 'reset' %}
+    <br>
+    <div class="alert bg-green">
+        <i class="bi bi-check2"></i>
+        <strong>Success ·</strong>
+        The node has been deleted successfully.
+    </div>
+    {% elif action == 'start' %}
+    <br>
+    <div class="alert bg-green">
+        <i class="bi bi-check2"></i>
+        <strong>Success ·</strong>
+        The node is starting...
+    </div>
+    </div>
+    {% elif action == 'stop' %}
+    <br>
+    <div class="alert bg-green">
+        <i class="bi bi-check2"></i>
+        <strong>Success ·</strong>
+        The node is stopping...
+    </div>
     {% endif %}
 
     <h1>Home</h1>
 
     <h2>Actions</h2>
     <div class="actions">
+        {% if is_active == False %}
         <div class="action">
             <a href="/server/start">
                 <button class="bg-green">
                     <i class="bi bi-play-fill"></i>
                     Start
                 </button></a>
-        </div>
+            </div>
+        {% elif is_active == True %}
         <div class="action">
             <a href="/server/stop">
                 <button class="bg-yellow">
@@ -40,70 +64,75 @@
                     Shutdown
                 </button></a>
             </div>
+        {% endif %}
         <div class="action">
             <a href="/server/reset">
                 <button class="bg-red">
-                    <i class="bi bi-globe"></i>
-                    Reset worlds
+                    <i class="bi bi-trash-fill"></i>
+                    <!-- <i class="bi bi-globe"></i> -->
+                    Permanently delete node
                 </button></a>
         </div>
-        <div class="action">
+        <!-- <div class="action">
             <a href="/server/clear">
                 <button class="bg-blue">
-                    <i class="bi bi-trash-fill"></i>
                     Clear logs
                 </button></a>
-        </div>
+        </div> -->
     </div>
 
     <h2>Status</h2>
     <h3>Minecraft</h3>
     
-    <div class="panels">
+    <p>The server is {{ 'inactive' if not is_active else 'active' }} right now.</p>
+    <div class="panels {{ 'inactive' if not is_active else '' }}">
         <div class="panel gd-red">
             <i class="bi bi-people-fill"></i>
             <span class="title">Players</span>
-            <span class="value">0</span>
+            <span class="value">{{ stats_mc.player_count }}</span>
         </div>
         <div class="panel gd-green">
             <i class="bi bi-file-earmark-plus"></i>
-            <span class="title">Mods/Plugins</span>
-            <span class="value">0</span>
+            <span class="title">Plugins</span>
+            <span class="value">{{ stats_mc.plugins | length }}</span>
         </div>
-        <div class="panel gd-blue">
-            <i class="bi bi-box"></i>
-            <span class="title">Server Type</span>
-            <span class="value">Purpur</span>
-        </div>
+        <a href="{{ stats_mc.software.url }}">
+            <div class="panel gd-blue">
+                <i class="bi bi-box"></i>
+                <span class="title">Server Type</span>
+                <span class="value">{{ stats_mc.software.name }}</span>
+            </div>
+        </a>
         <div class="panel gd-dark">
             <i class="bi bi-sunrise"></i>
             <span class="title">Game time</span>
-            <span class="value">Night</span>
+            <span class="value">{{ stats_mc.time }}</span>
         </div>
     </div>
 
     <h3>Hardware</h3>
+    <p>This section can be used to monitor the performance of the server.</p>
 
     <div class="panels active">
         <div class="panel gd-green">
             <i class="bi bi-activity"></i>
             <span class="title">Last boot</span>
-            <span class="value">{{ stats_hardware.boot_days }} days</span>
+            <span class="value">{{ stats_hw.boot_days }} days</span>
         </div>
         <div class="panel gd-green">
             <i class="bi bi-device-ssd-fill"></i>
             <span class="title">SSD</span>
-            <span class="value">{{ stats_hardware.disk }}</span>
+            <span class="value">{{ stats_hw.disk }}</span>
         </div>
         <div class="panel gd-green">
             <i class="bi bi-cpu"></i>
             <span class="title">CPU usage</span>
-            <span class="value">{{ stats_hardware.cpu }}%</span>
+            <span class="value">{{ stats_hw.cpu }}%</span>
         </div>
         <div class="panel gd-green">
             <i class="bi bi-memory"></i>
             <span class="title">RAM usage</span>
-            <span class="value">{{ stats_hardware.ram }}</span>
+            <span class="value">{{ stats_hw.ram }}</span>
         </div>
     </div>
 </main>

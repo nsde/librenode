@@ -16,8 +16,12 @@ from nbt import nbt
 from .nodes import Node
 
 def get_player_file(node: Node, name: str) -> list:
-    with open(node.get_file(name)) as f:
-        return [i['name'] for i in json.load(f)]
+    try:
+        with open(node.get_file(name) + '.json') as f:
+            return [i['name'] for i in json.load(f)]
+    
+    except FileNotFoundError:
+        return []
 
 def get_ingame_time(node: Node) -> str:
     ingame_time = nbt.NBTFile(f'{node.path}/world/level.dat')[0]['Time'].value % 24000
@@ -40,27 +44,50 @@ def minecraft(node: Node) -> dict:
     whitelist = get_player_file(node, 'whitelist')
     last_players = get_player_file(node, 'usercache')
 
-    with mcipc.query.Client('127.0.0.1', 25565) as client:
-        server_data = client.stats(full=True)
+    try:
+        with mcipc.query.Client('127.0.0.1', node.port) as client:
+            server_data = client.stats(full=True)
+    except ConnectionRefusedError:
+        server_data = None
 
-    plugin_list = []
-
-    if server_data.plugins:
+    if server_data:
         plugin_list = list(server_data.plugins.values())[0]
+        players = server_data.players
+        player_count = f'{server_data.num_players}/{server_data.max_players}'
+        version = server_data.version
+        game_type = server_data.game_type
+
+    try:
+        igt = get_ingame_time(node)
+    except FileNotFoundError:
+        igt = '?'
+    
+    try:
+        software = {
+            'name': node.details.get('software'),
+            'url': node.details.get('url')
+        }
+
+    except FileNotFoundError:
+        software = {
+            'name': 'Not set up yet',
+            'url': '#'
+        }
 
     return {
-        'players': server_data.players,
-        'player_count': f'{server_data.num_players}/{server_data.max_players}' if server_data else '0/0',
-        'version': server_data.version if server_data else 'Offline',
-        'game_type': server_data.game_type if server_data else 'Server is not avaiable',
-        'last_players': last_players,
-        'whitelist': whitelist,
-        'plugins': plugin_list,
-        'ops': ops,
-        'normal_bans': bans,
-        'ip_bans': ip_bans,
+        'players': players if server_data else 0,
+        'player_count': player_count if server_data else '0/0',
+        'version': version if server_data else 'Offline',
+        'game_type': game_type if server_data else '?',
+        'last_players': last_players if server_data else [],
+        'whitelist': whitelist if server_data else [],
+        'plugins': plugin_list if server_data else [],
+        'ops': ops if server_data else [],
+        'normal_bans': bans if server_data else [],
+        'ip_bans': ip_bans if server_data else [],
 
-        'time': get_ingame_time(node),
+        'time': igt,
+        'software': software
     }
 
 def hardware() -> dict:

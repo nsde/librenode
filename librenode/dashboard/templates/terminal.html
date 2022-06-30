@@ -7,12 +7,37 @@
 {% endwith %}
 
 <main class="has-sidebar">
+    <p><a href="">Click here to refresh</a></p>
     <div class="alert bg-yellow">
         <i class="bi bi-exclamation-triangle-fill"></i>
         <strong>Warning  ·</strong>
         The console might contain sensitive information such as IP addresses, login codes and more.
         Please be really careful about what you send and always check it!
     </div>
+
+    {% if inactive %}
+    <br>
+    <div class="alert bg-red">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <strong>Warning  ·</strong>
+        The server is currently offline, and thus no commands can be sent. <a href="/server/start">Start the server</a>
+    </div>
+    {% else %}
+    <br>
+    <form action="" method="post">
+        <div class="inline fields">
+            <fieldset>
+                <legend>Command</legend>
+                <input name="command" placeholder="time set day" autofocus required>
+                <button type="submit"><i class="bi bi-send"></i></button>
+            </fieldset>
+        </div>
+    </form>
+    {% endif %}
+    
+    <pre>
+        <code>{{ node_log or 'Log not available.'}}</code>
+      </pre>
 </main>
 
 {% include "components/end.html" %}
