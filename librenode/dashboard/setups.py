@@ -1,6 +1,7 @@
 import flask
 
 from . import nodes
+from . import audit
 from . import downloads
 
 setups_bp = flask.Blueprint('setups_bp',
@@ -25,16 +26,19 @@ def setup_purpur():
 
 @setups_bp.route('/server/start')
 def start():
+    audit.log('Started node')
     nodes.Node('base').start()
     return flask.redirect('/home?action=start')
 
 @setups_bp.route('/server/stop')
 def stop():
+    audit.log('Stopped node')
     nodes.Node('base').stop()
     return flask.redirect('/home?action=stop')
 
 @setups_bp.route('/server/reset')
 def reset_confirmation():
+    audit.log('Delete node')
     return flask.render_template('dashboard/templates/confirmation.html')
 
 @setups_bp.route('/server/reset/confirm')

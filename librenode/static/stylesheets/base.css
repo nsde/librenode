@@ -163,6 +163,7 @@ main .auth button {
 }
 .panels.inactive .panel {
   opacity: 0.2 !important;
+  filter: blur(2px);
 }
 .panels > a {
   text-decoration: none;
@@ -189,6 +190,9 @@ main .auth button {
   cursor: pointer;
   transform: scale(1.05);
   filter: brightness(1.2);
+}
+.panels.inactive .panel:hover {
+  filter: blur(0px);
 }
 
 mark.dc {
@@ -355,6 +359,47 @@ input[type=checkbox]:not(:checked) {
   box-shadow: 0 0 5px rgba(141, 32, 32, 0.8588235294);
 }
 
+.gallery {
+  display: grid;
+  grid-gap: 2rem;
+  align-items: start;
+  box-sizing: border-box;
+  grid-template-columns: auto auto auto auto;
+}
+.gallery > a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.gallery .item {
+  padding: 1rem;
+  border-radius: 10px;
+  background: #2b275f;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.gallery .item .title * {
+  display: inline-block;
+  vertical-align: text-top;
+}
+.gallery .item:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+.gallery .item img {
+  border-radius: 10px;
+}
+.gallery .item h3 {
+  margin-top: 0;
+  padding: 0.5rem;
+  font-size: 1.4rem;
+}
+.gallery .item h3 mark {
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(107, 53, 255, 0.9764705882) 0%, #6a32ed 48%, rgba(88, 34, 213, 0.9294117647) 100%);
+}
+
 .fg-red {
   color: rgba(141, 32, 32, 0.8588235294) !important;
 }
@@ -421,4 +466,14 @@ input[type=checkbox]:not(:checked) {
 
 .gd-dark {
   background: linear-gradient(45deg, rgba(44, 37, 58, 0.9764705882) 0%, #1f1b3a 48%, rgba(28, 24, 57, 0.9294117647) 100%) !important;
+}
+
+*::-moz-selection {
+  color: #ffffff !important;
+  background-color: #761bff !important;
+}
+
+*::selection {
+  color: #ffffff !important;
+  background-color: #761bff !important;
 }/*# sourceMappingURL=base.css.map */

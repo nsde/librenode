@@ -7,28 +7,43 @@
 {% endwith %}
 
 <main class="has-sidebar">
+    {% if action == 'save' %}
     <div class="alert bg-green">
         <i class="bi bi-check2-circle"></i>
         <strong>Success  ·</strong>
         Saved!
     </div>
+    {% endif %}
+
     <h1>Integrations</h1>
     <h2>Discord</h2>
     <h3>Webhooks</h3>
     <h4>Tutorial</h4>
     <ol>
-        <li>Open up a Discord server you have high permissions or even admin on.</li>
+        <li>Open up a Discord server you have high permissions - or even better - admin on.</li>
         <li>Create a new text channel and call it something like <mark class="dc">#minecraft-log</mark> (you can change the name later).</li>
         <li>Right click the channel you've just created, choose <mark class="dc">Edit Channel</mark> and go to <mark class="dc">Integrations</mark>.</li>
         <li>Click the blue button saying <mark class="dc">Create Webhook</mark>. You can optionally choose an icon or name (like "LibreBot"). Make sure you've selected the correct channel.</li>
         <li>Finally, click <mark class="dc">Copy Webhook URL</mark>, paste the URL you've just copied in field below and you're done!</li>
     </ol>
 
-    <form method="post">
-        <p>
-            Webhook URL <input type="text" required="true" placeholder="e.g. https://discord.com/api/webhooks/99887766554433221/17J_gcUExAmPLeR6eNaHelXX6loCjLWv7aZ0YecYcAv42MZhTh1sj8KJTWExamp1eWZ1cT">
-        </p>
-        <a href="/apps/add/webhook"><button><i class="bi bi-discord"></i> Add new</button></a>
+    <div class="alert bg-yellow">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <strong>Warning  ·</strong>
+        Don't share the webhook URL with people you don't trust! They could send malicious links and spam.
+        <br>
+        You should delete the webhook immediately if you think it has been compromised.
+    </div>
+
+    <br>
+    <form action="" method="post">
+        <div class="inline fields">
+            <fieldset>
+                <legend>Webhook URL</legend>
+                <input type="text" name="url" required="true" placeholder="For example: https://discord.com/api/webhooks/99887766554433221/17J_gcUExAmPLeR6eNaHelXX6loCjLWv7aZ0YecYcAv42MZhTh1sj8KJTWExamp1eWZ1cT">
+                <button type="submit"><i class="bi bi-plus"></i> Add new</button>
+            </fieldset>
+        </div>
     </form>
 </main>
 

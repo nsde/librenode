@@ -250,7 +250,7 @@ Be aware that this function can also kill Java processes that have nothing to do
 
     @property
     def details(self) -> dict:
-        with open(f'{self.path}/node.json', 'r') as f:
+        with open(self.get_file('node.json'), 'r') as f:
             return json.load(f)
 
 if __name__ == '__main__':

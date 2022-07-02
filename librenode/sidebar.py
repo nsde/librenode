@@ -46,6 +46,12 @@ NAV = [
         'name': 'Help',
         'is_external': True
     },
+    {
+        'path': 'redirect/to/https://github.com/nsde/librenode/blob/master/CHANGELOG.md',
+        'icon': 'card-checklist',
+        'name': 'Changelog',
+        'is_external': True
+    },
 ]
 
 PATHS = [i['path'] for i in NAV]

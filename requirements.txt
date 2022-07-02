@@ -1,6 +1,6 @@
-nbt
-wget
-flask
-python-dotenv
-requests-oauthlib
-minecraft-launcher-lib
+nbt # reading Minecraft NBT data
+flask # web server
+dhooks # Discord webhook integration
+python-dotenv # .env file management
+requests-oauthlib # Discord auth
+minecraft-launcher-lib # Minecraft tools & more

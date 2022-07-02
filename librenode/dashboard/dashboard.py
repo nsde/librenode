@@ -33,8 +33,14 @@ def shop():
 def setup():
     return flask.render_template('dashboard/templates/setup.html')
 
-@dashboard_bp.route('/apps')
+@dashboard_bp.route('/apps', methods=['GET', 'POST'])
 def apps():
+    form = flask.request.form.to_dict()
+
+    if form.get('url'):
+        with open('librenode/admin_ips.json', 'w') as f:
+            f.write(form.get('url'))
+
     return flask.render_template('dashboard/templates/apps.html')
 
 @dashboard_bp.route('/terminal', methods=['GET', 'POST'])

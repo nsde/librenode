@@ -182,6 +182,7 @@ main
 
     &.inactive .panel
         opacity: 0.2 !important
+        filter: blur(2px)
 
     &>a
         text-decoration: none
@@ -209,6 +210,9 @@ main
             cursor: pointer
             transform: scale(1.05)
             filter: brightness(1.2)
+
+    &.inactive .panel:hover
+        filter: blur(0px)
 
 mark.dc
     color: white
@@ -350,6 +354,46 @@ input[type=checkbox]
         filter: saturate(2)
         box-shadow: 0 0 5px $red
 
+.gallery
+    display: grid
+    grid-gap: 2rem
+    align-items: start
+    box-sizing: border-box
+    grid-template-columns: auto auto auto auto
+
+    &>a
+        color: $text
+        text-decoration: none
+
+    .item
+        padding: 1rem
+        border-radius: 10px
+        background: $bg-dark
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 50px 0 rgba(0, 0, 0, 0.19)
+
+        .title *
+            display: inline-block           
+            vertical-align: text-top
+
+        &:hover
+            cursor: pointer
+            transform: scale(1.05)
+            filter: brightness(1.1)
+
+        img
+            border-radius: 10px
+        
+        h3
+            margin-top: 0
+            padding: 0.5rem
+            font-size: 1.4rem
+
+            mark
+                color: $text
+                padding: 5px
+                border-radius: 10px
+                background: $gradient-accent
+
 .fg-red
     color: $red !important
 .fg-yellow
@@ -386,3 +430,7 @@ input[type=checkbox]
     background: $gradient-light !important
 .gd-dark
     background: $gradient-dark !important
+
+*::selection
+    color: $text !important
+    background-color: $accent !important

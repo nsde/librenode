@@ -1,4 +1,3 @@
-import wget
 import json
 import requests
 
