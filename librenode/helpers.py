@@ -30,14 +30,18 @@ def setup(app: flask.Flask):
         
         if not path in ['/login', '/auth']:
             if not '/static/' in path:
-                has_access_ip = tools.ip(flask.request) in json.load(open('librenode/admin_ips.json'))
+                # has_access_ip = tools.ip(flask.request) in json.load(open('librenode/admin_ips.json'))
                 has_access_session = flask.session.get('discord_username') 
 
-                if not has_access_ip:
-                    return flask.redirect('/login')
+                if flask.session.get('discord_id'):
+                    if int(flask.session.get('discord_id')) not in json.load(open('librenode/admins.json')).values():
+                        has_access_session = False
+
+                # if not has_access_ip:
+                #     return flask.redirect('/login')
 
                 if not has_access_session:
-                    return flask.redirect('/login?session=new')
+                    return flask.redirect('/login')#?session=new'
 
     @app.route('/<page>/↑')
     def move_up(page):

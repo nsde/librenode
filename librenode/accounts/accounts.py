@@ -23,10 +23,10 @@ SCOPES = ['identify', 'email']
 
 @accounts_bp.route('/logout')
 def logout():
-    admin_ips = json.load(open('librenode/admin_ips.json')) or []
-    admin_ips.remove(tools.ip(flask.request)) # clear IP
+    # admin_ips = json.load(open('librenode/admin_ips.json')) or []
+    # admin_ips.remove(tools.ip(flask.request)) # clear IP
     flask.session.pop('discord_token', None)
-    json.dump(admin_ips, open('librenode/admin_ips.json', 'w'))
+    # json.dump(admin_ips, open('librenode/admin_ips.json', 'w'))
 
     return flask.redirect('/login')
 
@@ -61,10 +61,10 @@ def login():
         if int(profile['id']) not in list(json.load(open('librenode/admins.json')).values()): # User is not admin
             return flask.render_template('accounts/templates/login-failed.html')
         
-        if not tools.ip(flask.request) in json.load(open('librenode/admin_ips.json')):
-            admin_ips = json.load(open('librenode/admin_ips.json')) or []
-            admin_ips.append(tools.ip(flask.request))
-            json.dump(admin_ips, open('librenode/admin_ips.json', 'w'))
+        # if not tools.ip(flask.request) in json.load(open('librenode/admin_ips.json')):
+        #     admin_ips = json.load(open('librenode/admin_ips.json')) or []
+        #     admin_ips.append(tools.ip(flask.request))
+        #     json.dump(admin_ips, open('librenode/admin_ips.json', 'w'))
 
         return flask.redirect('/') # DONE
 

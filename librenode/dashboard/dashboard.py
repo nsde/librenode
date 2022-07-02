@@ -35,10 +35,12 @@ def setup():
 
 @dashboard_bp.route('/apps', methods=['GET', 'POST'])
 def apps():
+    base = nodes.Node(name='base')
+
     form = flask.request.form.to_dict()
 
     if form.get('url'):
-        with open('librenode/admin_ips.json', 'w') as f:
+        with open(base.get_file('webhook.json'), 'w') as f:
             f.write(form.get('url'))
 
     return flask.render_template('dashboard/templates/apps.html')

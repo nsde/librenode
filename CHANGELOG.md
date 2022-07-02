@@ -13,7 +13,12 @@
 ### Changes
 - Better SASS file structure (separate files?) 
 
-## v0.1 (Jun. 30th, 2022)
+## Alpha Dev (Jul. 2nd, 2022)
+### Removed
+- IP logging
+  - Not needed anymore since the auth system is working fine
+
+## Alpha Dev (Jun. 30th, 2022)
 ### Additions 
 - Added support for PyPy, which boosts performance dramatically (~4.5x)
 - Audit log
